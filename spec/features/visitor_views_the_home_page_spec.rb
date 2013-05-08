@@ -11,7 +11,7 @@ describe 'visitor views the home page' do
       visit '/'
       fill_in :username, with: "jcasimir"
       click_button "Search"
-      expect(current_path).to eq(feed_path('jcasimir'))
+      expect(current_path).to eq feeds_path
       expect(page).to have_selector('img')
     end
   end
