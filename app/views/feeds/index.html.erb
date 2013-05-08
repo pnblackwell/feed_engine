@@ -1,8 +1,4 @@
-<%= form_tag root_path do %>
-  <%= label_tag 'Search by flickr user name' %>
-  <%= text_field_tag :username %>
-  <%= submit_tag 'Search' %>
-<% end %>
+
 
 <% if @photo_urls %>
   <% @photo_urls.each do |photo_url| %>

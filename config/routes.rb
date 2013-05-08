@@ -1,3 +1,6 @@
 FeedEngine::Application.routes.draw do
-  root to: 'feeds#index'
+  root to: 'searches#show'
+
+  resources :feeds
 end
+  
