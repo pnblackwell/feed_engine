@@ -1,0 +1,11 @@
+<%= form_tag root_path do %>
+  <%= label_tag 'Search by flickr user name' %>
+  <%= text_field_tag :username %>
+  <%= submit_tag 'Search' %>
+<% end %>
+
+<% if @photo_urls %>
+  <% @photo_urls.each do |photo_url| %>
+    <%= image_tag "http://farm#{photo_url['farm']}.staticflickr.com/#{photo_url['server']}/#{photo_url['id']}_#{photo_url['secret']}.jpg" %>
+  <% end %>
+<% end %>

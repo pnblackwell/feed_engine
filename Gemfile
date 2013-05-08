@@ -26,6 +26,7 @@ gem 'jquery-rails'
 group :development, :test do
   gem 'rspec-rails', '~> 2.13.1'
   gem 'capybara', '~>2.1.0'
+  gem 'selenium-webdriver', '~>2.32.1'
 end
 
 # To use ActiveModel has_secure_password
