@@ -1,4 +1,4 @@
-class User
+class User < ActiveRecord::Base
   #id, email, ?username?, ?flickr?
   def self.from_omniauth(auth)
     create! do |user|
