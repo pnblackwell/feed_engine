@@ -4,5 +4,4 @@ class FeedsController < ApplicationController
     @photo_urls = Flickr.new(params[:username]).get_photos
   end
 
-  
 end
