@@ -51,6 +51,7 @@ GEM
       multi_json (~> 1.0)
     ffi (1.8.1)
     flickraw (0.9.6)
+    hashie (2.0.4)
     hike (1.2.2)
     i18n (0.6.1)
     journey (1.0.4)
@@ -65,6 +66,15 @@ GEM
     mime-types (1.23)
     multi_json (1.7.3)
     nokogiri (1.5.9)
+    oauth (0.4.7)
+    omniauth (1.1.4)
+      hashie (>= 1.2, < 3)
+      rack
+    omniauth-flickr (0.0.11)
+      omniauth-oauth (~> 1.0)
+    omniauth-oauth (1.0.1)
+      oauth
+      omniauth (~> 1.0)
     polyglot (0.3.3)
     rack (1.4.5)
     rack-cache (1.2)
@@ -140,6 +150,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   flickraw (~> 0.9.6)
   jquery-rails
+  omniauth-flickr (~> 0.0.11)
   rails (= 3.2.13)
   rspec-rails (~> 2.13.1)
   sass-rails (~> 3.2.3)

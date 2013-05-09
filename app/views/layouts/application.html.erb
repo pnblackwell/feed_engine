@@ -8,6 +8,12 @@
 </head>
 <body>
 
+  <%if current_user %>
+    Signed in as <%= current_user.name %>!
+  <% else %>
+    <%= link_to "Sign in with Flickr", "http://www.flickr.com/services/oauth/request_token" %>
+  <% end %>
+
 <%= yield %>
 
 </body>
