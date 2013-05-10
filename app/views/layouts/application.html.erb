@@ -2,19 +2,24 @@
 <html>
 <head>
   <title>FeedEngine</title>
+  <%= stylesheet_link_tag    "bootstrap", :media => "all" %>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<div class="nav">
+  <h1>PhotoLine</h1>
   <%if current_user %>
     Signed in as <%= current_user.name %>!
   <% else %>
-    <%= link_to "Sign in with Flickr", "http://www.flickr.com/services/oauth/request_token" %>
+    <%= link_to "Sign in with Flickr", "http://www.flickr.com/services/oauth/request_token", id: 'sign-in' %>
   <% end %>
+</div>
 
-<%= yield %>
+<div class='content'>
+  <%= yield %>
+</div>
 
 </body>
 </html>
