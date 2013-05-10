@@ -1,0 +1,5 @@
+<%= form_tag feeds_path, method: :get do %>
+  <%= label_tag 'Search by flickr user name' %>
+  <%= text_field_tag :username %>
+  <%= submit_tag 'Search' %>
+<% end %>
