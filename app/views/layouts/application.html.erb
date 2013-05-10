@@ -11,9 +11,14 @@
 <div class="nav">
   <h1>PhotoLine</h1>
   <%if current_user %>
-    Signed in as <%= current_user.name %>!
+    Signed in as <%= current_user.username %>!
+    <%= link_to "Sign out", signout_path %>
   <% else %>
+<<<<<<< HEAD
     <%= link_to "Sign in with Flickr", "http://www.flickr.com/services/oauth/request_token", id: 'sign-in' %>
+=======
+    <%= link_to "Sign in with twitter", "/auth/twitter" %>
+>>>>>>> 98dc994e2139a02c1adc38f1132c01a9f747090f
   <% end %>
 </div>
 
