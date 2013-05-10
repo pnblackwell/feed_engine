@@ -1,5 +1,4 @@
 class User < ActiveRecord::Base
-  attr_reader :id, :email, :username
 
   def self.from_omniauth(auth)
     where(auth.slice("provider", "provider_id")).first || create_from_omniauth(auth)

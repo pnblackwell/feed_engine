@@ -26,7 +26,7 @@ describe User do
 
   describe ".create_from_omniauth" do
 
-    context "given a new user" do
+    context "given a new user logs in with twitter" do
 
       it "creates a new user" do
         expect{User.create_from_omniauth(
