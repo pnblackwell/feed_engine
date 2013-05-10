@@ -5,6 +5,7 @@ gem 'flickraw', '~> 0.9.6'
 gem 'omniauth-twitter', '~> 0.0.16'
 gem 'pg'
 
+gem 'bootstrap-sass', '~> 2.1'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
