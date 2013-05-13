@@ -11,7 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130512201257) do
+ActiveRecord::Schema.define(:version => 20130513003834) do
+
+  create_table "feed_items", :force => true do |t|
+    t.string  "photo_url"
+    t.string  "source",    :default => "flickr"
+    t.integer "feed_id"
+  end
+
+  add_index "feed_items", ["feed_id"], :name => "index_feed_items_on_feed_id"
 
   create_table "feeds", :force => true do |t|
     t.string   "name"
