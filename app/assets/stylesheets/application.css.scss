@@ -13,3 +13,14 @@
  */
 
 @import "bootstrap";
+
+body{
+  background-color: black;
+}
+
+/* The outer div for the main body (not including the top nav bar) */
+.content {
+  margin: 30px;
+  
+  color: #aaa;
+}
