@@ -12,3 +12,11 @@
     'Oops! There are no photos in your feed yet!'
   <% end %>
 </div>
+
+<!--the info below was what we were doing on the initial feed home page.
+I've copied it here for reference, it should be deleted soon.-->
+<% if @photo_urls %>
+  <% @photo_urls.each do |photo_url| %>
+    <%= image_tag "http://farm#{photo_url['farm']}.staticflickr.com/#{photo_url['server']}/#{photo_url['id']}_#{photo_url['secret']}.jpg" %>
+  <% end %>
+<% end %>
