@@ -1,11 +1,13 @@
 <div class="content">
 
-  <%= @feed.name %>
+  <h1> Feed Name: <%= @feed.name %> </h1>
 
   <% if @feed_items.any? %>
 
     <% @feed_items.each do |item| %>
-      <p><%= item %></p>
+      <p>Photo Title: <%= item.photo_title %></p>
+      <p>Photo Owner: <%= item.owner %></p>
+      <p><%= image_tag(item.photo_url) %></p>
     <% end %>
 
   <% else %>

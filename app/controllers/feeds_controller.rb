@@ -1,7 +1,8 @@
 class FeedsController < ApplicationController
 
   def index
-    @photo_urls = Flickr.new(params[:username]).get_photos
+    search = Search.new(search_type: 'username', value: params[:username])
+    @photo_urls = Flickr.new(search).retrieve_photos
   end
 
   def new
@@ -12,9 +13,10 @@ class FeedsController < ApplicationController
   def create
     @feed = Feed.new(params[:feed])
     if @feed.save
-      #immediately get the first set of feed items
       @feed.generate_feed_items
       #and start background worker looking for updates
+      #
+      #
       redirect_to feed_path(@feed)
     else
       redirect_to new_feed_path, notice: "Oops!"
@@ -24,6 +26,6 @@ class FeedsController < ApplicationController
   def show
     @feed = Feed.find(params[:id])
     @feed_items = @feed.feed_items
-    # @photo_urls = Flickr.new(params[:username]).get_photos
+    # @photo_urls = Flickr.new(params[:username]).retrieve_photos
   end
 end
