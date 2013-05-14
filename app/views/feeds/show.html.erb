@@ -1,0 +1,20 @@
+<div class="content">
+
+  <h1 id='feed_title'> <%= @feed.name %> </h1>
+
+  <% if @feed_items.any? %>
+
+    <% @feed_items.each do |item| %>
+    
+    <div id='show-photo'>
+      <p><%= image_tag(item.photo_url) %></p>
+      <p><em>Photo Title:</em> <%= item.photo_title %></p>
+      <p><em>Photo Owner:</em> <%= item.owner %></p>
+    </div>
+
+    <% end %>
+
+  <% else %>
+    'Oops! There are no photos in your feed yet!'
+  <% end %>
+</div>

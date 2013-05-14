@@ -1,0 +1,18 @@
+<div class="content">
+  <div class='form'>
+    <%= form_for @feed do |f| %>
+       <%= f.label 'Name Your New Feed' %>
+       <%= f.text_field :name %>
+
+      <%= f.fields_for :searches do |search_field| %>
+        <%= search_field.label 'Search by flickr Screen Name' %>
+        <%= search_field.text_field :value, id: 'value' %>
+        <%= search_field.hidden_field :search_type, :value => 'username' %>
+      <% end %>
+
+      <br>
+
+      <%= f.submit "Create Feed", class: 'btn btn-large btn-primary', id:'create-feed' %>
+    <% end %>
+  </div>
+</div>
