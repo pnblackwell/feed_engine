@@ -1,0 +1,10 @@
+<%= "Please enter your email address" %>
+
+<%= form_for @user do |f| %>
+
+  <%= f.label :email %>
+  <%= f.text_field :email %>
+  <%= f.hidden_field :username %>
+
+  <%= f.submit "Submit" %>
+<% end %>

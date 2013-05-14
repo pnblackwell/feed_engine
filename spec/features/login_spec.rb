@@ -1,14 +1,17 @@
 require 'spec_helper'
 
-describe 'login user with flickr' do
+describe 'login user with twitter' do
 
-  it "can sign in user with Twitter account" do
-    visit '/'
+  it "allows existing user to log in via twitter" do
+    User.create(username: 'mockuser')
+    
+    visit root_path
     mock_auth_hash # OmniauthMockHelper.mock_auth_hash
     click_link "Sign in with twitter"
 
-    page.should have_content("mockuser")
-    page.should have_content("Sign out")
+    expect(current_path).to eq root_path
+    expect(page).to have_content 'Signed in as mockuser!'
+    expect(page).to_not have_content "Sign in with twitter"
   end
 
 end

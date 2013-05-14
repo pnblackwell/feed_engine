@@ -4,6 +4,7 @@ FeedEngine::Application.routes.draw do
 
   resources :feeds
   resources :sessions
+  resources :users  
 
 
   match 'auth/:provider/callback', to: 'sessions#create'

@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  attr_accessible :provider, :provider_id, :username, :email
 
   def self.from_omniauth(auth)
     where(auth.slice("provider", "provider_id")).first || create_from_omniauth(auth)
