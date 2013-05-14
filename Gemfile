@@ -21,6 +21,8 @@ group :development, :test do
   gem 'capybara', '~>2.1.0'
   gem 'selenium-webdriver', '~>2.32.1'
   gem 'pry'
+  gem 'hirb'
+  gem 'launchy'
 end
 
 group :test do

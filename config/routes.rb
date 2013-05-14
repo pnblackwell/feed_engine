@@ -2,7 +2,10 @@ FeedEngine::Application.routes.draw do
 
   root to: 'searches#show'
 
-  resources :feeds
+  resources :feeds do
+    resources :searches
+  end
+
   resources :sessions
   resources :users  
 

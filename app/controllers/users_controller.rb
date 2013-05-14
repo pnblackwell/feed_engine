@@ -5,13 +5,7 @@ class UsersController < ApplicationController
   end
 
   def edit
-    # if user.email?
-      #show existing user form
-    # else
-      #show the single email form
-    # end
     @user = User.from_omniauth(env['omniauth.auth'])
-      
   end
 
   def create
