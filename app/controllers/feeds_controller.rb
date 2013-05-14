@@ -13,7 +13,7 @@ class FeedsController < ApplicationController
   def create
     @feed = Feed.new(params[:feed])
     if @feed.save
-      @feed.generate_feed_items
+      @feed.collect_feed_items
       #and start background worker looking for updates
       #
       #

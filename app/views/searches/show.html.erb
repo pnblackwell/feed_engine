@@ -4,7 +4,7 @@
     <%= form_tag feeds_path, method: :get do %>
       <%= label_tag 'Search by flickr user name' %>
       <%= text_field_tag :username %>
-      <%= submit_tag 'Search' %>
+      <%= submit_tag 'Search', class: 'btn btn-large btn-primary' %>
     <% end %>
   </div>
 
