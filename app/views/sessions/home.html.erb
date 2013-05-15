@@ -10,7 +10,31 @@
         </p>
         <p> <%= link_to image_tag("signInWithTwitter.png"),"/auth/twitter" %></p>
      </div>
-   </div>
+        <script>
+        $(document).ready(function($){
 
+          $.supersized({
+
+            // Functionality
+            slide_interval:   3500,   // Length between transitions
+            transition:   1,
+            // 0-None, 1-Fade, 2-Slide Top, 3-Slide Right, 4-Slide Bottom, 5-Slide Left, 6-Carousel Right, 7-Carousel Left
+            transition_speed: 2000,    // Speed of transition
+            fit_landscape: 1,
+            // Components
+            slide_links: 'blank',
+            // Individual links for each slide (Options: false, 'num', 'name', 'blank')
+            slides:
+            [
+              // Slideshow Images
+              {image : 'http://farm9.staticflickr.com/8348/8154926648_4cb361d8ce_k.jpg', title : 'Image Credit: Maria Kazvan'},
+              {image : 'http://i.imgur.com/Fgs1WK4.jpg', title : 'Image Credit: Maria Kazvan'}
+            ]
+
+          });
+          });
+        </script>
+   </div>
   </div>
 </body>
+
