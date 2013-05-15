@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130514192615) do
+ActiveRecord::Schema.define(:version => 20130515142814) do
 
   create_table "feed_items", :force => true do |t|
     t.string  "photo_url"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(:version => 20130514192615) do
     t.integer  "user_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "subdomain",  :null => false
   end
 
   add_index "feeds", ["user_id"], :name => "index_feeds_on_user_id"
