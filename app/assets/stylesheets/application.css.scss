@@ -18,15 +18,20 @@ body{
   background-color: black;
 }
 
-/* The outer div for the main body (not including the top nav bar) */
-.content {
-  margin: 30px;
-  
-  color: #aaa;
+
+.navbar {
+  background: none;
+  background-color: #555;
+  opacity: 0.9;
+  border: none;
+  border-bottom: 2px solid #777;
+
+  a {color: #fff;}
 }
 
-#front-image {
-  float:l
+/* The outer div for the main body (not including the top nav bar) */
+.content {
+  color: #aaa;
 }
 
 #front-page-form {

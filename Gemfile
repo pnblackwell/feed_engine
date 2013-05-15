@@ -27,6 +27,7 @@ end
 
 group :test do
   gem 'sqlite3'
+  gem 'simplecov'
 end
 
 # To use ActiveModel has_secure_password

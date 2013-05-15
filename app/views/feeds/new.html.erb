@@ -3,6 +3,8 @@
     <%= form_for @feed do |f| %>
        <%= f.label 'Name Your New Feed' %>
        <%= f.text_field :name %>
+       <%= f.label "Give Your Feed Its Own Subdomain" %>
+       <%= f.text_field :subdomain %>
 
       <%= f.fields_for :searches do |search_field| %>
         <%= search_field.label 'Search by flickr Screen Name' %>

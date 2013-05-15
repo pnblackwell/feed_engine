@@ -1,4 +1,8 @@
 .form {
+  position: absolute;
+  margin-left: 40%;
+  margin-top: 20%;
+  background-color: rgb(8,31,31);
   padding: 30px;
   width: 240px;
   border: 8px solid #aaa;
@@ -10,12 +14,13 @@
   #create-feed { margin-left: 75px; }
 }
 
-#feed_title {
+.feed_title {
   text-align: center;
   font-family: Tahoma, sans-serif;
+  margin-top: 80px;
 }
 
-#show-photo{
+.show-photo{
   text-align: center;
   margin-bottom: 20px;
   img{
