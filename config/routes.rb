@@ -1,6 +1,7 @@
 FeedEngine::Application.routes.draw do
 
-  root to: 'searches#show'
+  # root to: 'searches#show'
+  root to: 'sessions#home'
 
   resources :feeds do
     resources :searches

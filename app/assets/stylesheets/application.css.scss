@@ -11,29 +11,4 @@
  *= require_self
  *= require_tree .
  */
-
 @import "bootstrap";
-
-body{
-  background-color: black;
-}
-
-
-.navbar {
-  background: none;
-  background-color: #555;
-  opacity: 0.9;
-  border: none;
-  border-bottom: 2px solid #777;
-
-  a {color: #fff;}
-}
-
-/* The outer div for the main body (not including the top nav bar) */
-.content {
-  color: #aaa;
-}
-
-#front-page-form {
-  float:left;
-}

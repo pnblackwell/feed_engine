@@ -1,0 +1,48 @@
+body {
+  background-color: black;
+}
+
+body.home{
+  background-image:url('trees.JPG');
+}
+
+h1 {
+  font-family: 'Metrophobic', sans-serif;
+}
+
+p {
+  font-family: 'Metrophobic', sans-serif;
+}
+
+.navbar {
+  background: none;
+  background-color:rgba(0, 0, 0, 0.5);
+  border: none;
+  color: white;
+}
+
+/* The outer div for the main body (not including the top nav bar) */
+
+.content {
+  color: #aaa;
+}
+
+/*#front-page-form {
+  float:left;
+}*/
+
+.container.signup {
+  margin: 100px auto;
+  padding: 50px;
+  float: center;
+  color: white;
+  font-weight: bold;
+  background-color:rgba(0, 0, 0, 0.5)
+}
+
+.greeting {
+  text-align: center;
+}
+
+
+
