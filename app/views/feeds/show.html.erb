@@ -6,10 +6,12 @@
 
     <% @feed_items.each do |item| %>
     
-    <div class='show-photo'>
+    <div class='show-photo hidden'>
       <p><%= image_tag(item.photo_url) %></p>
       <p><em>Photo Title:</em> <%= item.photo_title %></p>
       <p><em>Photo Owner:</em> <%= item.owner %></p>
+      <button class='slideup btn btn-warning'>Next Photo</button>
+      <button class='slidedown btn btn-info'>Previous Photo</button>
     </div>
 
     <% end %>
