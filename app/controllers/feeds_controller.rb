@@ -24,8 +24,7 @@ class FeedsController < ApplicationController
   end
 
   def show
-    @feed = Feed.find(params[:id])
+    @feed = Feed.find_by_subdomain(request.subdomain)
     @feed_items = @feed.feed_items
-    # @photo_urls = Flickr.new(params[:username]).retrieve_photos
   end
 end
