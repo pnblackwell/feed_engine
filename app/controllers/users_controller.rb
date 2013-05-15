@@ -14,10 +14,4 @@ class UsersController < ApplicationController
     redirect_to root_path
   end
 
-  def update
-    @user = User.from_omniauth(env['omniauth.auth'])
-    user.update_attribute(:email, )
-    redirect_to root_path
-  end
-
 end

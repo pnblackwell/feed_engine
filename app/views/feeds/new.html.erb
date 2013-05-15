@@ -6,15 +6,15 @@
        <%= f.label "Give Your Feed Its Own Subdomain" %>
        <%= f.text_field :subdomain %>
 
-      <%= f.fields_for :searches do |search_field| %>
-        <%= search_field.label 'Search by flickr Screen Name' %>
-        <%= search_field.text_field :value, id: 'value' %>
-        <%= search_field.hidden_field :search_type, :value => 'username' %>
-      <% end %>
+  <%= f.fields_for :searches do |search_field| %>
+    <%= search_field.label 'Search by flickr Screen Name' %>
+    <%= search_field.text_field :value, id: 'value' %>
+    <%= search_field.hidden_field :search_type, :value => 'username' %>
+  <% end %>
 
-      <br>
+  <br>
 
-      <%= f.submit "Create Feed", class: 'btn btn-large btn-primary', id:'create-feed' %>
-    <% end %>
-  </div>
-</div>
+  <%= f.submit "Create Feed", class: 'btn btn-large btn-primary', id:'create-feed' %>
+<% end %>
+
+
