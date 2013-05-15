@@ -17,7 +17,7 @@ class FeedsController < ApplicationController
       #and start background worker looking for updates
       #
       #
-      redirect_to feed_path(@feed)
+      redirect_to root_url(subdomain: @feed.subdomain)
     else
       redirect_to new_feed_path, notice: "Oops!"
     end
