@@ -1,0 +1,16 @@
+ <div class='content'>
+
+ <a href="#myModal" role="button" class="btn btn-primary" data-toggle="modal">Create a New Feed</a>
+
+<!-- Modal -->
+  <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+      <h3 id="myModalLabel">Create Your New Feed</h3>
+    </div>
+    <div class="modal-body">
+      <%= render template: 'feeds/new' %>
+    </div>
+  </div>
+
+</div>
