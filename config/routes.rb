@@ -7,6 +7,7 @@ FeedEngine::Application.routes.draw do
   end
 
   resources :sessions
+  resources :users  
 
 
   match 'auth/:provider/callback', to: 'sessions#create'
