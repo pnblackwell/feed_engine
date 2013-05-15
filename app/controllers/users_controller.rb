@@ -17,8 +17,6 @@ class UsersController < ApplicationController
   def update
     @user = User.from_omniauth(env['omniauth.auth'])
     user.update_attribute(:email, )
-    # if they entered email and saved to the db
-    # then set the session hash session[:user_id] = @user.id
     redirect_to root_path
   end
 
