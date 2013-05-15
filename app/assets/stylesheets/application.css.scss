@@ -12,7 +12,8 @@
  *= require_tree .
  */
 
-@import "bootstrap";
+@import "twitter/bootstrap";
+@import "twitter/bootstrap/_responsive";
 
 body{
   background-color: black;
@@ -32,6 +33,7 @@ body{
 /* The outer div for the main body (not including the top nav bar) */
 .content {
   color: #aaa;
+  padding-top: 100px;
 }
 
 #front-page-form {
