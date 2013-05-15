@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :require_login, only: :show
+  before_filter :require_login, only: [:show, :edit, :update]
 
   def new
     @user = User.new(username: params[:xyz])
@@ -18,7 +18,7 @@ class UsersController < ApplicationController
   def update
     @user = User.from_omniauth(env['omniauth.auth'])
     user.update_attribute(:email, )
-    redirect_to root_path
+    redirect_to dashboard_path
   end
 
   def show
