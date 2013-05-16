@@ -1,0 +1,11 @@
+<%= "Please enter your email address" %>
+
+<h1>We need your email to complete the signup process</h1>
+<%= form_for @user do |f| %>
+
+  <%= f.label :email %>
+  <%= f.text_field :email %>
+  <%= f.hidden_field :username %>
+
+  <%= f.submit "Submit" %>
+<% end %>

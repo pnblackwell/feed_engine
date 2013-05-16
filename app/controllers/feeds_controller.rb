@@ -17,15 +17,14 @@ class FeedsController < ApplicationController
       #and start background worker looking for updates
       #
       #
-      redirect_to feed_path(@feed)
+      redirect_to root_url(subdomain: @feed.subdomain)
     else
       redirect_to new_feed_path, notice: "Oops!"
     end
   end
 
   def show
-    @feed = Feed.find(params[:id])
+    @feed = Feed.find_by_subdomain(request.subdomain)
     @feed_items = @feed.feed_items
-    # @photo_urls = Flickr.new(params[:username]).retrieve_photos
   end
 end

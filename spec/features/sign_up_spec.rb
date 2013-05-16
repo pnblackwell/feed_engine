@@ -1,13 +1,12 @@
 require 'spec_helper'
 
-describe 'login user with twitter' do
-
-  it "allows existing user to log in via twitter" do
-    User.create(username: 'mockuser')
-    
+describe 'Sign up with Twitter' do
+  it 'asks for an email address and logs the user in' do
+    mock_auth_hash
     visit root_path
-    mock_auth_hash # OmniauthMockHelper.mock_auth_hash
     click_link "Sign in with twitter"
+    fill_in 'user[email]', with: 'user@example.com'
+    click_button 'Submit'
 
     expect(current_path).to eq root_path
     expect(page).to have_content 'Signed in as mockuser!'
