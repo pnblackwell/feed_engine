@@ -3,8 +3,8 @@ body {
 }
 
 body.home{
-  /*background-image:url('trees.JPG');*/
-  position: relative;
+  background-image:url('trees.JPG');
+  /*position: relative;*/
 }
 
 h1 {
@@ -39,7 +39,7 @@ p {
   color: white;
   font-weight: bold;
   background-color:rgba(0, 0, 0, 0.5);
-  position: absolute;
+  /*position: absolute;*/
 }
 
 .greeting {

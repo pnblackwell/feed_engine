@@ -19,11 +19,7 @@
         Signed in as <%= current_user.username %>!
         <%= link_to "Sign out", signout_path %>
       </div>
-      <!-- ### Create feed icon ### -->
-      <div class="icon">
-        <div class="camera_body"></div>
-        <div class="camera_lens"></div>
-      </div>
+        <%-#= link_to image_tag("createFeed.png"), new_feed_path %>
     <% end %>
   </div>
 
