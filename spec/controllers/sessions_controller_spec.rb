@@ -19,8 +19,8 @@ describe SessionsController do
         mock_auth_hash
         request.env["omniauth.auth"] = OmniAuth.config.mock_auth[:twitter]
 
-        get :create        
-        expect(response).to redirect_to root_path
+        get :create
+        expect(response).to redirect_to new_feed_path
       end
     end
 
@@ -35,5 +35,5 @@ describe SessionsController do
       end
     end
   end
-  
+
 end
