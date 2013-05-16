@@ -5,6 +5,8 @@ class FeedsController < ApplicationController
     @photo_urls = Flickr.new(search).retrieve_photos
   end
 
+# we are now using a modal in users#show to create a new feed. do we want to
+# maintain some functionality for a feeds/new page?
   def new
     @feed = Feed.new
     @feed.searches.new

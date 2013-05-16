@@ -23,5 +23,7 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
+    @feed = Feed.new
+    @feed.searches.new
   end
 end

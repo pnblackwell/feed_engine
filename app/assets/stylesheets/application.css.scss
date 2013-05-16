@@ -40,3 +40,30 @@ body{
 #front-page-form {
   float:left;
 }
+
+/* Bootstrap Modals Styling */
+.modal{
+  width: 320px;
+  left: 60%;
+  color: grey;
+}
+.modal-header{
+  background: none;
+  background-color: black;
+}
+
+.modal-body{
+  padding-left: 50px;
+}
+
+.modal-backdrop{
+  background-color: #ccc;
+}
+
+
+
+
+
+
+
+
