@@ -1,4 +1,5 @@
-
+<div class='content'>
+  <div class='form'>
     <%= form_for @feed do |f| %>
        <%= f.label 'Name Your New Feed' %>
        <p class='note'>(e.g., Kittens Are Cute!)</p>
@@ -7,16 +8,18 @@
        <p class='note'>(e.g., kittens. Please, no spaces or special characters.)</p> 
        <%= f.text_field :subdomain %>
 
-  <%= f.fields_for :searches do |search_field| %>
-    <%= search_field.label 'Search by flickr Screen Name' %>
-    <a class='note' href="http://flickr.com ">What's a Flickr Screen Name?</a>
-    <%= search_field.text_field :value, id: 'value' %>
-    <%= search_field.hidden_field :search_type, :value => 'username' %>
-  <% end %>
+    <%= f.fields_for :searches do |search_field| %>
+      <%= search_field.label 'Search by flickr Screen Name' %>
+      <a class='note' href="http://flickr.com ">What's a Flickr Screen Name?</a>
+      <%= search_field.text_field :value, id: 'value' %>
+      <%= search_field.hidden_field :search_type, :value => 'username' %>
+    <% end %>
 
-  <br>
+    <br>
 
-  <%= f.submit "Create Feed", class: 'btn btn-large btn-primary', id:'create-feed' %>
-<% end %>
+    <%= f.submit "Create Feed", class: 'btn btn-large btn-primary', id:'create-feed' %>
+    <% end %>
+  </div>
+</div>
 
 

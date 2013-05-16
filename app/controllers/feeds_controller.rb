@@ -5,11 +5,9 @@ class FeedsController < ApplicationController
     @photo_urls = Flickr.new(search).retrieve_photos
   end
 
-# we are now using a modal in users#show to create a new feed. do we want to
-# maintain some functionality for a feeds/new page?
   def new
     @feed = Feed.new
-    @feed.searches.new
+    @search = @feed.searches.new
   end
 
   def create
@@ -21,7 +19,7 @@ class FeedsController < ApplicationController
       #
       redirect_to root_url(subdomain: @feed.subdomain)
     else
-      redirect_to new_feed_path, notice: "Oops!"
+      redirect_to new_feed_path, notice: "Oops! We failed to create your feed"
     end
   end
 

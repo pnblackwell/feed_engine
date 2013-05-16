@@ -20,11 +20,16 @@ describe 'user dashboard' do
   describe 'creating a new feed' do
     context 'when the user fills in the form' do
       it 'creates a new feed and redirects to its show page' do
-        pending 'we are currently doing this in create new feed spec'
-        # log_in_user
-        # visit '/dashboard'
-        # click_link_or_button 'Create A New Feed'
-        # fill_in :name, with: ''
+        log_in_user
+        visit '/dashboard'
+        click_link_or_button 'Create A New Feed'
+
+        fill_in "feed_name", with: "Jen's Pics"
+        fill_in "feed_subdomain", with: "jenspics"
+        fill_in "value", with: "white raven photography"
+        click_link_or_button "Create Feed"
+
+        expect(page).to have_selector('img')
       end
     end
   end
