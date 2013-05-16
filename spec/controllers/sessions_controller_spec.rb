@@ -21,11 +21,7 @@ describe SessionsController do
         request.env["omniauth.auth"] = OmniAuth.config.mock_auth[:twitter]
 
         get :create
-<<<<<<< HEAD
-        expect(response).to redirect_to new_feed_path
-=======
         expect(response).to redirect_to dashboard_path
->>>>>>> setup login before filter, starting user dashboard
       end
     end
 
@@ -41,8 +37,6 @@ describe SessionsController do
     end
   end
 
-<<<<<<< HEAD
-=======
   describe 'session#DESTROY' do
     it 'sets the session id to nil' do
       pending 'how do we mock the session sign in?'
@@ -52,6 +46,4 @@ describe SessionsController do
       pending 'how do we mock the session sign in?'
     end
   end
-  
->>>>>>> setup login before filter, starting user dashboard
 end
