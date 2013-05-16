@@ -9,9 +9,14 @@ class UsersController < ApplicationController
   end
 
   def create
-    user = User.create(params[:user])
-    session[:user_id] = user.id
-    redirect_to root_path
+    @user = User.create(params[:user])
+    if @user.save
+      session[:user_id] = @user.id
+      redirect_to root_path
+      UserMailer.signup_confirmation(@user).deliver
+    else
+      redirect_to root_path
+    end
   end
 
 end
