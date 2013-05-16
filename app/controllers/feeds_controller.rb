@@ -7,7 +7,7 @@ class FeedsController < ApplicationController
 
   def new
     @feed = Feed.new
-    @feed.searches.new
+    @search = @feed.searches.new
   end
 
   def create
@@ -19,7 +19,7 @@ class FeedsController < ApplicationController
       #
       redirect_to root_url(subdomain: @feed.subdomain)
     else
-      redirect_to new_feed_path, notice: "Oops!"
+      redirect_to new_feed_path, notice: "Oops! We failed to create your feed"
     end
   end
 
