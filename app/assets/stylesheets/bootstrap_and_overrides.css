@@ -3,8 +3,7 @@ body {
 }
 
 body.home{
-  background-image:url('trees.JPG');
-  /*position: relative;*/
+  /*background-image:url('trees.JPG');*/
 }
 
 h1 {
@@ -15,11 +14,20 @@ p {
   font-family: 'Metrophobic', sans-serif;
 }
 
-.navbar {
-  background: none;
-  background-color:rgba(0, 0, 0, 0.5);
-  border: none;
-  color: white;
+.navbar a {
+  color: pink;
+  margin: 0px 0px 10px 0px;
+}
+
+#logo {
+  font-family: 'Metrophobic', sans-serif;
+  color: pink;
+  font-size: 250%;
+  margin: 10px 0px 0px 0px;
+}
+
+.navLinks {
+  color: pink;
 }
 
 /* The outer div for the main body (not including the top nav bar) */
@@ -28,18 +36,13 @@ p {
   color: #aaa;
 }
 
-/*#front-page-form {
-  float:left;
-}*/
-
 .container.signup {
   margin: 100px auto;
   padding: 50px;
   float: center;
-  color: white;
+  color: pink;
   font-weight: bold;
-  background-color:rgba(0, 0, 0, 0.5);
-  /*position: absolute;*/
+  background-color:rgba(0, 0, 0, 0.6);
 }
 
 .greeting {
