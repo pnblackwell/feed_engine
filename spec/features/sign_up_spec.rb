@@ -4,7 +4,7 @@ describe 'Sign up with Twitter' do
   it 'asks for an email address and logs the user in' do
     mock_auth_hash
     visit root_path
-    click_link "Sign in with twitter"
+    click_link "signin"
     fill_in 'user[email]', with: 'user@example.com'
     click_button 'Submit'
 

@@ -14,8 +14,9 @@ p {
   font-family: 'Metrophobic', sans-serif;
 }
 
-a {
+.navbar a {
   color: pink;
+  margin: 0px 0px 10px 0px;
 }
 
 #logo {
@@ -27,7 +28,6 @@ a {
 
 .navLinks {
   color: pink;
-  margin: 0px 0px 10px 0px;
 }
 
 /* The outer div for the main body (not including the top nav bar) */

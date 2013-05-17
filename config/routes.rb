@@ -2,13 +2,14 @@ FeedEngine::Application.routes.draw do
 
 
   match '', to: 'feeds#show', constraints: lambda { |r| r.subdomain.present? && r.subdomain != 'www'}
+  get  "/dashboard" =>"users#show", :as => 'dashboard'
 
   resources :feeds do
     resources :searches
   end
 
   resources :sessions
-  resources :users
+  resources :users, only: [:new, :create, :edit, :update]
 
   root to: 'sessions#home'
 
