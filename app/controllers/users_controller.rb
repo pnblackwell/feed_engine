@@ -12,13 +12,13 @@ class UsersController < ApplicationController
   def create
     user = User.create(params[:user])
     session[:user_id] = user.id
-    redirect_to dashboard_path, notice: "Signed in as #{user.username}!"
+    redirect_to dashboard_path
   end
 
   def update
     @user = User.from_omniauth(env['omniauth.auth'])
     user.update_attribute(:email, )
-    redirect_to dashboard_path, notice: 'Successfully updated!'
+    redirect_to dashboard_path
   end
 
   def show

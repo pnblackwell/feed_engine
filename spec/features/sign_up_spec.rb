@@ -9,7 +9,8 @@ describe 'Sign up with Twitter' do
     click_button 'Submit'
 
     expect(current_path).to eq dashboard_path
-    expect(page).to have_content 'Signed in as mockuser!'
+    expect(page).to have_content 'mockuser'
+    expect(page).to have_content 'Sign out'
     expect(page).to_not have_content "Sign in with twitter"
   end
 
