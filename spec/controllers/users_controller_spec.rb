@@ -21,10 +21,10 @@ describe UsersController do
       expect{post :create, user: {email: 'user@example.com', username: 'coolness'}}.to change{User.count}.by(1)
     end
 
-    it 'redirects the user back to the homepage' do
+    it 'redirects the user to their dashboard' do
       post :create, user: {email: 'user@example.com', username: 'coolness'}
 
-      expect(response).to redirect_to root_path
+      expect(response).to redirect_to dashboard_path
     end
 
     it 'sets the user id in the session to log them in' do

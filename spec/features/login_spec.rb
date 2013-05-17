@@ -10,7 +10,8 @@ describe 'login user with twitter' do
     click_link "signin"
 
     expect(current_path).to eq dashboard_path
-    expect(page).to have_content 'Signed in as mockuser!'
+    save_and_open_page
+    expect(page).to have_content 'Account information for: mockuser'
     expect(page).to_not have_content "Sign in with twitter"
   end
 

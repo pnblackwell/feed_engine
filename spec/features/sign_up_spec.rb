@@ -8,7 +8,7 @@ describe 'Sign up with Twitter' do
     fill_in 'user[email]', with: 'user@example.com'
     click_button 'Submit'
 
-    expect(current_path).to eq root_path
+    expect(current_path).to eq dashboard_path
     expect(page).to have_content 'Signed in as mockuser!'
     expect(page).to_not have_content "Sign in with twitter"
   end
