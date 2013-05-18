@@ -5,10 +5,6 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-  def edit
-    @user = User.from_omniauth(env['omniauth.auth'])
-  end
-
   def create
     user_details_from_form = params[:user]
     user_details_from_omniauth = omniauth_user_info(session[:omniauth_results])
