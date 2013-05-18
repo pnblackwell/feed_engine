@@ -8,10 +8,10 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to dashboard_path
     else
-      redirect_to new_user_path(:xyz => twitter_nickname)
+      session[:omniauth_results] = request.env['omniauth.auth']
+      redirect_to new_user_path
     end
   end
-
 
   def destroy
     session[:user_id] = nil
@@ -21,4 +21,6 @@ class SessionsController < ApplicationController
   def home
   end
 end
+
+
 
