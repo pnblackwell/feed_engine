@@ -1,15 +1,41 @@
- <div class='content'>
+ <div class='content user-show'>
 
- <a href="#myModal" role="button" class="btn btn-primary" data-toggle="modal">Create a New Feed</a>
+ <a href="#newfeed" role="button" id='newfeedbutton' class="btn btn-primary" data-toggle="modal">Create A New Feed</a>
+
+<ul class='nav nav-tabs'>
+  <li class='active'><a href="#myAccount">My Account</a></li>
+  <li><a href="#manageFeeds">Manage Feeds</a></li>
+  <li><a href="#reFeeds">ReFeeds</a></li>
+  <li><a href="#viewerViz">Viewer Requests</a></li>
+</ul>
+
+<div id='#myAccount'>
+  <h3> Account information for:
+      <span id= 'username'><%= @user.username %> </span>
+  </h3>
+
+  <p> <%= @user.email %> <%= link_to 'Update Email', root_path %></p>
+</div>
+
+<br>
+  Each of these categories will be in their own display, dependent on active tab
+<br>
+
+<div id='manageFeeds'>
+  <h3>Manage My Feeds</h3>
+  <p>Info on Feeds Goes Here!!</p>
+</div>
+
+
 
 <!-- Modal -->
-  <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div id="newfeed" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="newfeedLabel" aria-hidden="true">
     <div class="modal-header">
       <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-      <h3 id="myModalLabel">Create Your New Feed</h3>
+      <h3 id="newfeedLabel">Create Your New Feed</h3>
     </div>
     <div class="modal-body">
-      <%= render template: 'feeds/new' %>
+      <%= render partial: 'new_feed' %>
     </div>
   </div>
 

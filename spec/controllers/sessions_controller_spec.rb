@@ -13,14 +13,15 @@ describe SessionsController do
 
         expect(session[:user_id]).to eq(found_user.id)
       end
+
       it 'redirects to the root path' do
         found_user = User.create(username: 'mockuser')
 
         mock_auth_hash
         request.env["omniauth.auth"] = OmniAuth.config.mock_auth[:twitter]
 
-        get :create        
-        expect(response).to redirect_to root_path
+        get :create
+        expect(response).to redirect_to dashboard_path
       end
     end
 
@@ -35,5 +36,14 @@ describe SessionsController do
       end
     end
   end
-  
+
+  describe 'session#DESTROY' do
+    it 'sets the session id to nil' do
+      pending 'how do we mock the session sign in?'
+    end
+
+    it 'redirects to the root path' do
+      pending 'how do we mock the session sign in?'
+    end
+  end
 end

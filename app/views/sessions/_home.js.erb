@@ -1,0 +1,22 @@
+<script>
+  $(document).ready(function($){
+
+    $.supersized({
+
+      slide_interval:   3500,   // Length between transitions
+      transition:   1,
+      // 0-None, 1-Fade, 2-Slide Top, 3-Slide Right, 4-Slide Bottom, 5-Slide Left, 6-Carousel Right, 7-Carousel Left
+      transition_speed: 2000,
+      fit_landscape: 1,
+      slide_links: 'blank',
+      slides:
+      [
+        // Slideshow Images
+        {image : 'http://farm8.staticflickr.com/7290/8743299985_4e536ca8ba.jpg', title : 'Image Credit: Maria Kazvan'},
+        {image : 'http://buildinternet.s3.amazonaws.com/projects/supersized/3.2/slides/kazvan-1.jpg', title : 'Image Credit: Maria Kazvan'},
+        {image : 'http://buildinternet.s3.amazonaws.com/projects/supersized/3.2/slides/wojno-1.jpg', title : 'Image Credit: Colin Wojno', thumb : 'http://buildinternet.s3.amazonaws.com/projects/supersized/3.2/thumbs/wojno-1.jpg', url : 'http://www.nonsensesociety.com/2011/03/colin/'},
+        {image : 'http://buildinternet.s3.amazonaws.com/projects/supersized/3.2/slides/kazvan-3.jpg', title : 'Image Credit: Maria Kazvan', thumb : 'http://buildinternet.s3.amazonaws.com/projects/supersized/3.2/thumbs/kazvan-3.jpg', url : 'http://www.nonsensesociety.com/2011/04/maria-kazvan/'}
+      ]
+    });
+  });
+</script>
