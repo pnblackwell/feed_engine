@@ -1,10 +1,8 @@
 class Flickr
   attr_reader :search_type, :value
 
-  FlickRaw.api_key = '8e2204133cf60f2cfb151c753163c5a6'
-  FlickRaw.shared_secret = 'c82a20016731f664'
-  # FlickRaw.api_key       = ENV['FLICKR_API_KEY']
-  # FlickRaw.shared_secret = ENV['FLICKR_SECRET']
+  FlickRaw.api_key       = ENV['FLICKR_API_KEY']
+  FlickRaw.shared_secret = ENV['FLICKR_SECRET']
 
   def initialize(search)
     @search_type = search.search_type

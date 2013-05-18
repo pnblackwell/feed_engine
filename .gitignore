@@ -21,5 +21,5 @@ coverage
 # Ignore application configuration
 /config/application.yml
 
-# dot env gem for env variables
+# dot-env gem for env variables
 /.env
