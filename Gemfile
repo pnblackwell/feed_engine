@@ -4,7 +4,7 @@ gem 'rails', '3.2.13'
 gem 'flickraw', '~> 0.9.6'
 gem 'omniauth-twitter', '~> 0.0.16'
 gem 'pg'
-gem 'figaro'
+# gem 'figaro'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -24,6 +24,7 @@ group :development, :test do
   gem 'pry'
   gem 'hirb'
   gem 'launchy'
+  gem 'dotenv-rails'
 end
 
 group :test do
