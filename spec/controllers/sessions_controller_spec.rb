@@ -13,14 +13,15 @@ describe SessionsController do
 
         expect(session[:user_id]).to eq(found_user.id)
       end
-      it 'redirects to the root path' do
+
+      it 'redirects to the dashboard' do
         found_user = User.create(username: 'mockuser')
 
         mock_auth_hash
         request.env["omniauth.auth"] = OmniAuth.config.mock_auth[:twitter]
 
         get :create
-        expect(response).to redirect_to root_path
+        expect(response).to redirect_to dashboard_path
       end
     end
 
@@ -44,5 +45,4 @@ describe SessionsController do
       end
     end
   end
-
 end

@@ -26,8 +26,6 @@ describe UsersController do
   end
 
     it 'creates a new user with the provided email and user info stored in session' do
-
-
       expect{
         post :create, {user: {email: 'user@example.com'}}, {omniauth_results: @omniauth_hash}
       }.to change{User.count}.by(1)
@@ -38,10 +36,9 @@ describe UsersController do
       expect(created_user.provider_id).to eq ('123545')
     end
 
-    it 'redirects the user back to the homepage' do
+    it 'redirects the user back to the dashboard' do
       post :create, {user: {email: 'user@example.com'}}, {omniauth_results: @omniauth_hash}
-
-      expect(response).to redirect_to root_path
+      expect(response).to redirect_to dashboard_path
     end
 
     it 'sets the user id in the session to log them in' do
@@ -51,5 +48,30 @@ describe UsersController do
     end
 
     it 'does something when the create fails'
+  end
+
+  describe 'users#SHOW' do
+    context 'when a user is logged in' do
+      it 'assigns the user' do
+        user = User.create(email: 'user@example.com', username: 'coolness')
+        controller.stub(:require_login).and_return(true)
+        get :show
+        expect(assigns(:user)).to eq @user
+      end
+
+      it 'renders the show template' do
+        user = User.create(email: 'user@example.com', username: 'coolness')
+        controller.stub(:require_login).and_return(true)
+        get :show
+        expect(response).to render_template(:show)
+      end
+    end
+
+    context 'when a user is NOT logged in' do
+      it 'redirects the user to the home page' do
+        get :show
+        expect(response).to redirect_to(root_path)
+      end
+    end
   end
 end
