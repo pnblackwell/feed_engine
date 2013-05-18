@@ -5,15 +5,29 @@
   <% if @feed_items.any? %>
 
     <% @feed_items.each do |item| %>
-    
     <div class='show-photo hidden'>
       <p><%= image_tag(item.photo_url) %></p>
-      <p><em>Photo Title:</em> <%= item.photo_title %></p>
-      <p><em>Photo Owner:</em> <%= item.owner %></p>
-      <button class='slideup btn btn-warning'>Next Photo</button>
-      <button class='slidedown btn btn-info'>Previous Photo</button>
-    </div>
+      <div class='photo-options'>
+        <div class='photo-metadata'>
+          <% if item.photo_title != '' %>
+            <p><em>Photo Title:</em> <%= item.photo_title %></p>
+          <% end %>
 
+          <p><em>Photo Owner:</em> <%= item.owner %></p>
+          <p><em>Source:</em> <%= item.source %></p>
+        </div>
+
+        <div class='photo-buttons'>
+          <button class='slidedown btn btn-inverse'><i class='icon-chevron-up icon-white'></i></button>
+          <button class='slideup btn btn-inverse'><i class='icon-chevron-down icon-white'></i></button>
+        </div>
+
+        <div class='photo-options'>
+          <p>Star it!</p>
+          <p>Add Item to Your Feed</p>
+        </div>
+      </div>
+    </div>
     <% end %>
 
   <% else %>

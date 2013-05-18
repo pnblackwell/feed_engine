@@ -1,17 +1,28 @@
-body {
+body{
   background-color: black;
+  color: #fff;
 }
 
 body.home{
   /*background-image:url('trees.JPG');*/
 }
 
-h1 {
+h1, p #logo {
   font-family: 'Metrophobic', sans-serif;
 }
 
-p {
-  font-family: 'Metrophobic', sans-serif;
+a:hover{
+  color:blue;
+  text-decoration: none;
+}
+
+/* Site Wide NavBar*/
+.navbar {
+  background: none;
+  background-color: #555;
+  opacity: 0.9;
+  border: none;
+  border-bottom: 2px solid #777;
 }
 
 .navbar a {
@@ -20,7 +31,6 @@ p {
 }
 
 #logo {
-  font-family: 'Metrophobic', sans-serif;
   color: pink;
   font-size: 250%;
   margin: 10px 0px 0px 0px;
@@ -29,11 +39,14 @@ p {
 .navLinks {
   color: pink;
 }
+/* end site wide navbar stuff */
+
 
 /* The outer div for the main body (not including the top nav bar) */
 
 .content {
   color: #aaa;
+  padding-top: 60px;
 }
 
 .container.signup {
@@ -47,6 +60,26 @@ p {
 
 .greeting {
   text-align: center;
+}
+
+
+/* Bootstrap Modals Styling */
+.modal{
+  width: 320px;
+  left: 60%;
+  color: grey;
+}
+.modal-header{
+  background: none;
+  background-color: black;
+}
+
+.modal-body{
+  padding-left: 50px;
+}
+
+.modal-backdrop{
+  background-color: #ccc;
 }
 
 
