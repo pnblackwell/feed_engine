@@ -19,21 +19,30 @@ describe SessionsController do
         mock_auth_hash
         request.env["omniauth.auth"] = OmniAuth.config.mock_auth[:twitter]
 
-        get :create        
+        get :create
         expect(response).to redirect_to root_path
       end
     end
 
     describe 'when user does not exist' do
-      it 'should redirect to the users#new with the username as a query parameter' do
+      it 'should redirect to the users#new' do
         mock_auth_hash
         request.env["omniauth.auth"] = OmniAuth.config.mock_auth[:twitter]
 
         get :create
 
-        expect(response).to redirect_to new_user_path(xyz: 'mockuser')
+        expect(response).to redirect_to new_user_path
+      end
+
+      it 'sets omniauth authentication info in the session' do
+        mock_auth_hash
+        request.env["omniauth.auth"] = OmniAuth.config.mock_auth[:twitter]
+
+        get :create
+
+        expect(session[:omniauth_results]).to eq OmniAuth.config.mock_auth[:twitter]
       end
     end
   end
-  
+
 end

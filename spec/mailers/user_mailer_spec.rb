@@ -2,6 +2,7 @@ require "spec_helper"
 
 describe UserMailer do
   describe "signup_confirmation" do
+    let!(:user) {User.create(:username => 'jen', :email => '7maples@example.com')}
     let(:mail) { UserMailer.signup_confirmation }
     before { ActionMailer::Base.deliveries = [] }
 
@@ -16,10 +17,8 @@ describe UserMailer do
     end
 
     it "confirms delivery" do
-      #this test isn't doing SHIT - how to test delivery?
-      user = Factory(:user)
       UserMailer.signup_confirmation(user).deliver
       ActionMailer::Base.deliveries.should_not be_empty
     end
-
+  end
 end
