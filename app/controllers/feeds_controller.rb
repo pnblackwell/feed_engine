@@ -1,3 +1,5 @@
+require 'resque/server'
+
 class FeedsController < ApplicationController
 
   def index
@@ -13,10 +15,10 @@ class FeedsController < ApplicationController
   def create
     @feed = Feed.new(params[:feed])
     if @feed.save
-      @feed.collect_feed_items
-      #and start background worker looking for updates
-      #
-      #
+      # @feed.collect_feed_items
+      # search_id = @feed.searches.first.id
+      Resque.enqueue(PhotoFetcher, @feed.id)
+
       redirect_to root_url(subdomain: @feed.subdomain)
     else
       redirect_to new_feed_path, notice: "Oops! We failed to create your feed"
