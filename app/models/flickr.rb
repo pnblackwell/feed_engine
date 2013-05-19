@@ -13,24 +13,29 @@ class Flickr
     send("get_#{search_type}_photos", value)
   end
 
+  def get_keyword_photos(keyword)
+    photos = flickr.photos.search(api_key: FlickRaw.api_key, tags: keyword, extras: 'owner_name', page: 1, per_page: 30)
+    cleaned_list = Flickr.clean_results(photos)
+  end
+
   def get_username_photos(username)
+    # flickr.value?
     id = get_user_id(username)
-    photos_list = flickr.photos.search(api_key: FlickRaw.api_key, user_id: id)
-    owner =Flickr.get_username_from_id(id)
-    cleaned_list = Flickr.clean_results(photos_list, owner)
+    photos_list = flickr.photos.search(api_key: FlickRaw.api_key, user_id: id, extras: 'owner_name', page: 1, per_page: 30)
+    cleaned_list = Flickr.clean_results(photos_list)
   end
 
   def self.get_username_from_id(user_id)
     flickr.people.getInfo(api_key: FlickRaw.api_key, url: user_id)['username']
   end
 
-  def self.clean_results(results, owner)
+  def self.clean_results(results)
     #this method will need to change how we get owner once we start doing keyword searches
     clean_list = results.collect do |result|
                 { source: 'flickr',
                   source_id: result['id'].to_i,
                   photo_title: result['title'],
-                  owner: owner,
+                  owner: result['owner_name'],
                   photo_url: "http://farm#{result['farm']}.staticflickr.com/#{result['server']}/#{result['id']}_#{result['secret']}.jpg"
                 }
               end

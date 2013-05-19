@@ -13,8 +13,14 @@ class FeedsController < ApplicationController
   end
 
   def create
+
     @feed = Feed.new(params[:feed])
+
     if @feed.save
+      search = Search.new(params[:feed][:searches_attributes]["0"])
+      search.feed_id = @feed.id
+      search.save
+
       @feed.collect_feed_items
 
       #if i do the below, then its going to be slow for sure on first run, but what if we just

@@ -21,32 +21,31 @@ describe Flickr do
     end
   end
 
-  describe "#get_photos" do
-    it 'returns JSON photo data' do
-      search = Search.create(value: 'dannytestapp', search_type:'username')
-      flicker = Flickr.new(search)
-      flicker.stub(:get_photos).and_return('[{"id"=>"8719370310", "owner"=>"95556281@N07", "secret"=>"f7c220dcc2", "server"=>"7374", "farm"=>8, "title"=>"map", "ispublic"=>1, "isfriend"=>0, "isfamily"=>0}]')
-
-      expect(flicker.get_photos).to eq('[{"id"=>"8719370310", "owner"=>"95556281@N07", "secret"=>"f7c220dcc2", "server"=>"7374", "farm"=>8, "title"=>"map", "ispublic"=>1, "isfriend"=>0, "isfamily"=>0}]')
+  describe '#get_keyword_photos' do
+    it 'returns a array of photos from flickr' do
+      search = Search.create(value:'asparagus', search_type:'keyword')
+      @flicker = Flickr.new(search)
+      keyword = 'asparagus'
+      photos = @flicker.get_keyword_photos(keyword)
+     
+      expect(photos.count).to eq(30)
     end
   end
 
   describe '.clean_results' do
     it 'takes in the Flickr output and cleans it to just the info we want' do
-      results = [ {"id"=>"6335473183", "owner"=>"69341872@N00", "secret"=>"d07e47ec51", "server"=>"6060", "farm"=>7, "title"=>"", "ispublic"=>1, "isfriend"=>0, "isfamily"=>0},
-                  {"id"=>"5738180053", "owner"=>"69341872@N00", "secret"=>"78e25a82de", "server"=>"2002", "farm"=>3, "title"=>"IMG_0962", "ispublic"=>1, "isfriend"=>0, "isfamily"=>0}
+      results = [ {"id"=>"6335473183", "owner"=>"69341872@N00","secret"=>"d07e47ec51", "server"=>"6060", "farm"=>7, "title"=>"", "ispublic"=>1, "isfriend"=>0, "isfamily"=>0, "owner_name"=>"pookie"},
+                  {"id"=>"5738180053", "owner"=>"69341872@N00", "secret"=>"78e25a82de", "server"=>"2002", "farm"=>3, "title"=>"IMG_0962", "ispublic"=>1, "isfriend"=>0, "isfamily"=>0, "owner_name"=>"walnut"}
                 ]
 
-      owner = "69341872@N00"
-
-      cleaned_list = [{ source: 'flickr', source_id: 6335473183, photo_title: "", owner: "69341872@N00",
+      cleaned_list = [{ source: 'flickr', source_id: 6335473183, photo_title: "", owner: "pookie",
                         photo_url: "http://farm7.staticflickr.com/6060/6335473183_d07e47ec51.jpg"
                          },
-                      { source: 'flickr', source_id: 5738180053, photo_title: "IMG_0962", owner: "69341872@N00",
+                      { source: 'flickr', source_id: 5738180053, photo_title: "IMG_0962", owner: "walnut",
                         photo_url: "http://farm3.staticflickr.com/2002/5738180053_78e25a82de.jpg"
                         }
                       ]
-      expect(Flickr.clean_results(results, owner)).to eq cleaned_list
+      expect(Flickr.clean_results(results)).to eq cleaned_list
     end
   end
 end
