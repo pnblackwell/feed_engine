@@ -16,8 +16,11 @@ class FeedsController < ApplicationController
     @feed = Feed.new(params[:feed])
     if @feed.save
       # @feed.collect_feed_items
-      # search_id = @feed.searches.first.id
-      Resque.enqueue(PhotoFetcher, @feed.id)
+
+      #if i do this, then its going to be slow for sure on first run, but what if we just
+      #do an immediate call here and save teh resque for updating/adding searches
+      search_id = @feed.searches.first.id
+      Resque.enqueue(PhotoFetcher, search_id)
 
       redirect_to root_url(subdomain: @feed.subdomain)
     else

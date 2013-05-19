@@ -1,8 +1,8 @@
 class PhotoFetcher
   @queue= :photo
 
-  def self.perform(feed_id)
-    feed = Feed.find(feed_id)
-    feed.collect_feed_items
+  def self.perform(search_id)
+    search = Search.find(search_id)
+    search.generate_feed_items
   end
 end
