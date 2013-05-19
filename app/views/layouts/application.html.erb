@@ -20,13 +20,9 @@
       <div class="container-fluid">
         <p id="logo"><%= link_to "Photoline", root_url(:subdomain => false) %></p>
         <%if current_user %>
-          <div><%= render "layouts/menu" %></div>
           <div class="pull-right navLinks">
-              <%= current_user.username %>
-              <%= link_to "Sign out", signout_path %>
-              <%= link_to "Create feed", new_feed_path %>
+            <%= render "layouts/menu" %>
           </div>
-            <%-#= link_to image_tag("createFeed.png"), new_feed_path %>
         <% end %>
       </div>
     </div>
