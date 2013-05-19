@@ -1,0 +1,13 @@
+<div class="menu-trigger">Menu</div>
+  <ul id="menu" style="display: none;">
+    <li><%= link_to "Home", "#" %></li><br>
+    <li><%= link_to "Feeds", "#" %></li><br>
+    <li><%= link_to "Dashboard", dashboard_path %></li>
+  </ul>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        var jPM = $.jPanelMenu();
+        jPM.on();
+    });
+</script>
