@@ -16,12 +16,12 @@
       <%= search_field.text_field :value, id: 'value' %>
       <%= search_field.label 'Select Search Type' %>
       <div>
-        <%= search_field.radio_button :search_type, :username %>
+        <%= search_field.radio_button :search_type, :username, class:'radio_button' %>
        <%= f.label :search_type, 'Username', :value => 'username', class:'radio_label' %>
       </div>
       <div>
-        <%= search_field.radio_button :search_type, :keyword %>
-        <%= f.label :search_type, 'Keyword', :value => 'keyword', class:'radio_button' %>
+        <%= search_field.radio_button :search_type, :keyword, class:'radio_button' %>
+        <%= f.label :search_type, 'Keyword', :value => 'keyword', class:'radio_label' %>
       </div>
     <% end %>
 
