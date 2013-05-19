@@ -1,3 +1,7 @@
+<p id='new-feed-description'>Search Flickr for all your friends and favorite things! Type in a username or keyword, along
+  with the name and subdomain for your new feed. Thanks!
+</p>
+
 <%= form_for @feed do |f| %>
   <%= f.label 'Name Your New Feed' %>
   <p class='note'>(e.g., Kittens Are Cute!)</p>
@@ -6,12 +10,20 @@
   <p class='note'>(e.g., kittens. Please, no spaces or special characters.)</p>
   <%= f.text_field :subdomain %>
 
-    <%= f.fields_for :searches do |search_field| %>
+ <%= f.fields_for :searches do |search_field| %>
       <%= search_field.label 'Search by flickr Screen Name' %>
       <a class='note' href="http://flickr.com ">What's a Flickr Screen Name?</a>
       <%= search_field.text_field :value, id: 'value' %>
-      <%= search_field.hidden_field :search_type, :value => 'username' %>
- <% end %>
+      <%= search_field.label 'Select Search Type' %>
+      <div>
+        <%= search_field.radio_button :search_type, :username %>
+       <%= f.label :search_type, 'Username', :value => 'username', class:'radio_label' %>
+      </div>
+      <div>
+        <%= search_field.radio_button :search_type, :keyword %>
+        <%= f.label :search_type, 'Keyword', :value => 'keyword', class:'radio_button' %>
+      </div>
+    <% end %>
 
   <br>
 
