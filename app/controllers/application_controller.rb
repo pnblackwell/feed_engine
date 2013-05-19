@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   def require_login
     unless logged_in?
       flash[:error] = "Please log in first"
-      redirect_to root_path
+      redirect_to root_url(:subdomain => false)
     end
   end
 

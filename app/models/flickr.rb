@@ -28,9 +28,9 @@ class Flickr
     #this method will need to change how we get owner once we start doing keyword searches
     clean_list = results.collect do |result|
                 { source: 'flickr',
+                  source_id: result['id'].to_i,
                   photo_title: result['title'],
                   owner: owner,
-                  # owner: result['owner'],
                   photo_url: "http://farm#{result['farm']}.staticflickr.com/#{result['server']}/#{result['id']}_#{result['secret']}.jpg"
                 }
               end

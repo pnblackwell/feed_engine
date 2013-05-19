@@ -15,7 +15,7 @@ class UsersController < ApplicationController
       redirect_to dashboard_path
       UserMailer.signup_confirmation(@user).deliver
     else
-      redirect_to root_path, notice: "Login failed"
+      redirect_to root_url(:subdomain => false), notice: "Login failed"
     end
   end
 

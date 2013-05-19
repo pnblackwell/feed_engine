@@ -18,7 +18,7 @@
   <div class="navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-inner">
       <div class="container-fluid">
-        <p id="logo"><%= link_to "Photoline", root_path %></p>
+        <p id="logo"><%= link_to "Photoline", root_url(:subdomain => false) %></p>
         <%if current_user %>
           <div class="pull-right navLinks">
               <%= current_user.username %>
