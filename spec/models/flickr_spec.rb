@@ -36,12 +36,13 @@ describe Flickr do
       results = [ {"id"=>"6335473183", "owner"=>"69341872@N00", "secret"=>"d07e47ec51", "server"=>"6060", "farm"=>7, "title"=>"", "ispublic"=>1, "isfriend"=>0, "isfamily"=>0},
                   {"id"=>"5738180053", "owner"=>"69341872@N00", "secret"=>"78e25a82de", "server"=>"2002", "farm"=>3, "title"=>"IMG_0962", "ispublic"=>1, "isfriend"=>0, "isfamily"=>0}
                 ]
+      owner = "69341872@N00"
       cleaned_list = [{ photo_url: "http://farm7.staticflickr.com/6060/6335473183_d07e47ec51.jpg",
                         owner: "69341872@N00", photo_title: "", source: 'flickr' },
                       { photo_url: "http://farm3.staticflickr.com/2002/5738180053_78e25a82de.jpg",
                         owner: "69341872@N00", photo_title: "IMG_0962", source: 'flickr'}
                       ]
-      expect(Flickr.clean_results(results)).to eq cleaned_list
+      expect(Flickr.clean_results(results, owner)).to eq cleaned_list
     end
   end
 end

@@ -25,6 +25,7 @@ class Flickr
   end
 
   def self.clean_results(results, owner)
+    #this method will need to change how we get owner once we start doing keyword searches
     clean_list = results.collect do |result|
                 { source: 'flickr',
                   photo_title: result['title'],
