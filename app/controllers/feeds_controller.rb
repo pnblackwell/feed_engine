@@ -20,6 +20,7 @@ class FeedsController < ApplicationController
       #if i do the below, then its going to be slow for sure on first run, but what if we just
       #do an immediate call here and save teh resque for updating/adding searches
 
+      #SETUP FOR USING RESQUE TO GET THE PHOTOS
       # search_id = @feed.searches.first.id
       # Resque.enqueue(PhotoFetcher, search_id)
 
