@@ -17,11 +17,20 @@
         <%= f.text_field :subdomain %>
 
      <%= f.fields_for :searches do |search_field| %>
+
+          <div>
+            <%= search_field.radio_button :search_source, :flickr, class:'radio_button' %>
+            <%= f.label :search_type, 'flickr', :value => 'flickr', class:'radio_label' %>
+
+            <%= search_field.radio_button :search_source, :px, class:'radio_button' %>
+            <%= f.label :search_type, '500px', :value => '500px', class:'radio_label' %>
+          </div>
+
           <%= search_field.label 'Search' %>
           <a class='note' href="http://flickr.com ">What's a Flickr Screen Name?</a>
           <%= search_field.text_field :value, id: 'value' %>
           <%= search_field.label 'Select Search Type' %>
-          
+
           <div>
             <%= search_field.radio_button :search_type, :username, class:'radio_button' %>
             <%= f.label :search_type, 'Screen Name', :value => 'username', class:'radio_label' %>
@@ -47,7 +56,7 @@
         $('#newfeed').modal({backdrop: 'static'});
     });
 </script>
-  
+
 
 
 
