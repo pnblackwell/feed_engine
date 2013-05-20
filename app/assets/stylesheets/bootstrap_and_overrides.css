@@ -49,15 +49,6 @@ a:hover{
   padding-top: 60px;
 }
 
-.container.signup {
-  margin: 100px auto;
-  padding: 50px;
-  float: center;
-  color: pink;
-  font-weight: bold;
-  background-color:rgba(0, 0, 0, 0.6);
-}
-
 .greeting {
   text-align: center;
 }

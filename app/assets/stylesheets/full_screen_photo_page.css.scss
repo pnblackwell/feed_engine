@@ -1,0 +1,49 @@
+.container.signup {
+  margin: 100px auto;
+  padding: 50px;
+  float: center;
+  color: #fff;
+  font-weight: bold;
+  background-color:rgba(0, 0, 0, 0.6);
+  width: 615px;
+  height: 300px;
+
+  h1 {
+    font-weight:normal;
+    text-transform: uppercase;
+    margin-bottom:40px;
+    border-bottom:1px solid rgba(255,255,255, 0.15);
+    padding-bottom:20px;
+    font-family: 'PT Sans Caption', sans-serif;
+    font-size:48px;
+  }
+
+  p {
+    line-height:2em;
+    font-size:16px;
+    font-weight:normal;
+  }
+
+  .navLinks{
+    li{
+      display: inline-block;
+      margin: 0 5px;
+      color:#fff;
+      font-size:13px;
+
+      a {
+        font-weight:normal;
+        color:#fff;
+        /*display:block;*/
+        padding-bottom:2px;
+        border-bottom:1px solid rgba(255,255,255, 0.15);
+        -webkit-transition:opacity 0.5s;
+
+        &:hover {
+          opacity:0.75;
+          border-bottom:0;
+        }
+      }
+    }
+  }
+}
