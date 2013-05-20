@@ -9,10 +9,9 @@
           Photline is the place to discover great photograpy!
         </p>
         <p> <%= link_to image_tag("signInWithTwitter.png"),"/auth/twitter" , id: 'signin' %></p>
-        <%= render "home.js" %>
+        <%= render partial: "home", :formats => [:js] %>
      </div>
 
    </div>
   </div>
 </body>
-
