@@ -14,6 +14,9 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require_tree .
+//= require supersized.3.2.7.min
+//= require supersized.shutter.min
+//
 
 $(document).ready(function(){
 });

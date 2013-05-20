@@ -5,6 +5,7 @@ gem 'flickraw', '~> 0.9.6'
 gem 'omniauth-twitter', '~> 0.0.16'
 gem 'pg'
 gem 'resque', "~>1.24.0"
+gem 'puma'
 
 # Gems used only for assets and not required
 # in production environments by default.
