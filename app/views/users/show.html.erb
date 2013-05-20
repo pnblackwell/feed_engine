@@ -9,31 +9,46 @@
 
   <div class='tab-content'>
     <div class='tab-pane active' id='myAccount'>
-      <h3> Account Information For:
+      <h1> Account Information For:
           <span id= 'username'> <%= @user.username %> </span>
-      </h3>
+      </h1>
 
       <!-- needs a real link! -->
       <p> Your email address: <%= @user.email %></p>
       <p><%= link_to 'Update Email', root_path %></p>
+      <% link_to "Disable Your Account", root_path %>
     </div>
 
     <div class="tab-pane" id='manageFeeds'>
-      <h3>Manage My Feeds</h3>
+      <h1>Manage My Feeds</h1>
       <% if @feeds.present? %>
 
         <% @feeds.each do |feed| %>
           <h4><%= feed.name %></h4>
           <p> Visit Your Feed: <%= link_to root_url(subdomain: feed.subdomain) %></p>
-          <h5>Searches in This Feed</h5>
-          <h1>PUT THESE IN A TABLE</h1>
+          <h3>Searches in This Feed</h3>
+
           <% if feed.searches.any? %>
-            <% feed.searches.each do |search| %>
-              <%= search.search_type %>
-              <%= search.value %>
-              <%= search.source %>
-            <% end %>
+          <table class="table table-striped">
+            <tbody>
+              <thead>
+                <tr>
+                  <th>Search Type</th>
+                  <th>Search Term</th>
+                <th>Source</th>
+                </tr>
+              </thead>
+              <% feed.searches.each do |search| %>
+              <tr>
+                <td><%= search.search_type %></td>
+                <td><%= search.value %></td>
+                <td><%= search.source %></td>
+              </tr>
+              <% end %>
+            </tbody>
+          </table>
           <% end %>
+          <hr>
         <% end %>
       <% else %>
           You Don't Have Any Feeds Yet! Create One.

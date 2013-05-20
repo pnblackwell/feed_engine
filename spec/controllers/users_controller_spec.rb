@@ -55,13 +55,15 @@ describe UsersController do
       it 'assigns the user' do
         user = User.create(email: 'user@example.com', username: 'coolness')
         controller.stub(:require_login).and_return(true)
+        controller.stub(:current_user).and_return(user)
         get :show
-        expect(assigns(:user)).to eq @user
+        expect(assigns(user)).to eq @user
       end
 
       it 'renders the show template' do
         user = User.create(email: 'user@example.com', username: 'coolness')
         controller.stub(:require_login).and_return(true)
+        controller.stub(:current_user).and_return(user)
         get :show
         expect(response).to render_template(:show)
       end
