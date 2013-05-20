@@ -4,8 +4,7 @@ class FeedsController < ApplicationController
   before_filter :require_login, only: [:new, :create]
 
   def index
-    search = Search.new(search_type: 'username', value: params[:username])
-    @photo_urls = Flickr.new(search).retrieve_photos
+    @feeds = Feed.find_by_user_id(current_user.id)
   end
 
   def new
