@@ -1,43 +1,46 @@
  <div class='content user-show'>
 
- <a href="#newfeed" role="button" id='newfeedbutton' class="btn btn-primary" data-toggle="modal">Create A New Feed</a>
+  <%= link_to "Create A New Feed", new_feed_path, id: 'newfeedbutton', class: 'btn btn-primary' %>
 
-<ul class='nav nav-tabs'>
-  <li class='active'><a href="#myAccount">My Account</a></li>
-  <li><a href="#manageFeeds">Manage Feeds</a></li>
-  <li><a href="#reFeeds">ReFeeds</a></li>
-  <li><a href="#viewerViz">Viewer Requests</a></li>
-</ul>
+  <ul class='nav nav-tabs'>
+    <li class='active'><a href="#myAccount" data-toggle="tab">My Account</a></li>
+    <li><a href="#manageFeeds" data-toggle="tab">Manage Feeds</a></li>
+  </ul>
 
-<div id='#myAccount'>
-  <h3> Account information for:
-      <span id= 'username'><%= @user.username %> </span>
-  </h3>
+  <div class='tab-content'>
+    <div class='tab-pane active' id='myAccount'>
+      <h3> Account Information For:
+          <span id= 'username'> <%= @user.username %> </span>
+      </h3>
 
-  <!-- needs a real link! -->
-  <p> <%= @user.email %> <%= link_to 'Update Email', root_path %></p>
-</div>
-
-<br>
-  Each of these categories will be in their own display, dependent on active tab
-<br>
-
-<div id='manageFeeds'>
-  <h3>Manage My Feeds</h3>
-  <p>Info on Feeds Goes Here!!</p>
-</div>
-
-
-
-<!-- Modal -->
-  <div id="newfeed" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="newfeedLabel" aria-hidden="true">
-    <div class="modal-header">
-      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-      <h3 id="newfeedLabel">Create Your New Feed</h3>
+      <!-- needs a real link! -->
+      <p> Your email address: <%= @user.email %></p>
+      <p><%= link_to 'Update Email', root_path %></p>
     </div>
-    <div class="modal-body">
-      <%= render partial: 'new_feed' %>
+
+    <div class="tab-pane" id='manageFeeds'>
+      <h3>Manage My Feeds</h3>
+      <% if @feeds.present? %>
+
+        <% @feeds.each do |feed| %>
+          <h4><%= feed.name %></h4>
+          <p> Visit Your Feed: <%= link_to root_url(subdomain: feed.subdomain) %></p>
+          <h5>Searches in This Feed</h5>
+          <h1>PUT THESE IN A TABLE</h1>
+          <% if feed.searches.any? %>
+            <% feed.searches.each do |search| %>
+              <%= search.search_type %>
+              <%= search.value %>
+              <%= search.source %>
+            <% end %>
+          <% end %>
+        <% end %>
+      <% else %>
+          You Don't Have Any Feeds Yet! Create One.
+      <% end %>
     </div>
   </div>
 
 </div>
+
+
