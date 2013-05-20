@@ -20,35 +20,45 @@
     </div>
 
     <div class="tab-pane" id='manageFeeds'>
-      <h1>Manage My Feeds</h1>
-      <% if @feeds.present? %>
 
-        <% @feeds.each do |feed| %>
-          <h4><%= feed.name %></h4>
-          <p> Visit Your Feed: <%= link_to root_url(subdomain: feed.subdomain) %></p>
-          <h3>Searches in This Feed</h3>
+        <div class="container-fluid">
+            <% if @feeds.present? %>
+            <% @feeds.each do |feed| %> 
+          <div class="row-fluid">
+            <div class="span2">
+              <h4><%= feed.name %></h4>
+              <p> Visit Your Feed: <%= link_to root_url(subdomain: feed.subdomain) %></p>
+            </div>
+            <div class="span10">
+              <h3>Searches in This Feed</h3>
 
-          <% if feed.searches.any? %>
-          <table class="table table-striped">
-            <tbody>
-              <thead>
-                <tr>
-                  <th>Search Type</th>
-                  <th>Search Term</th>
-                <th>Source</th>
-                </tr>
+              <% if feed.searches.any? %>
+                <table class="table table-striped">
+                <tbody>
+                <thead>
+                  <tr>
+                    <th>Search Type</th>
+                    <th>Search Term</th>
+                    <th>Source</th>
+                  </tr>
               </thead>
+              
               <% feed.searches.each do |search| %>
-              <tr>
-                <td><%= search.search_type %></td>
-                <td><%= search.value %></td>
-                <td><%= search.source %></td>
-              </tr>
+                <tr>
+                  <td><%= search.search_type %></td>
+                  <td><%= search.value %></td>
+                  <td><%= search.source %></td>
+                </tr>
               <% end %>
-            </tbody>
-          </table>
+            </div>
+            </div>
+          </div>
+                </tbody>
+                </table>
           <% end %>
-          <hr>
+          </div>
+        </div>
+        <hr>
         <% end %>
       <% else %>
           You Don't Have Any Feeds Yet! Create One.

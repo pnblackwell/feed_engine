@@ -8,13 +8,11 @@
   width: 615px;
   height: 300px;
 
-  h1 {
-    font-weight:normal;
-    text-transform: uppercase;
+  h1#logo {
+    color:#fff;
     margin-bottom:40px;
     border-bottom:1px solid rgba(255,255,255, 0.15);
     padding-bottom:20px;
-    font-family: 'PT Sans Caption', sans-serif;
     font-size:48px;
   }
 
@@ -25,25 +23,6 @@
   }
 
   .navLinks{
-    li{
-      display: inline-block;
-      margin: 0 5px;
-      color:#fff;
-      font-size:13px;
-
-      a {
-        font-weight:normal;
-        color:#fff;
-        /*display:block;*/
-        padding-bottom:2px;
-        border-bottom:1px solid rgba(255,255,255, 0.15);
-        -webkit-transition:opacity 0.5s;
-
-        &:hover {
-          opacity:0.75;
-          border-bottom:0;
-        }
-      }
-    }
+    float:none;
   }
 }
