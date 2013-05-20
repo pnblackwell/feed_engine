@@ -1,5 +1,7 @@
 FeedEngine::Application.configure do
-  config.action_dispatch.tld_length = 2
+FeedEngine::Application.config.session_store :cookie_store, :key => '_tourlyapp_session', :domain => ".lvh.me"
+
+  # config.action_dispatch.tld_length = 2
   # Settings specified here will take precedence over those in config/application.rb
 
   # Code is not reloaded between requests
