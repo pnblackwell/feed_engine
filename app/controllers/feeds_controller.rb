@@ -1,6 +1,7 @@
 require 'resque/server'
 
 class FeedsController < ApplicationController
+  before_filter :require_login, only: [:new, :create]
 
   def index
     search = Search.new(search_type: 'username', value: params[:username])
@@ -13,13 +14,13 @@ class FeedsController < ApplicationController
   end
 
   def create
-
     @feed = Feed.new(params[:feed])
+    @feed.user_id = current_user.id
 
     if @feed.save
-      search = Search.new(params[:feed][:searches_attributes]["0"])
-      search.feed_id = @feed.id
-      search.save
+      # search = Search.new(params[:feed][:searches_attributes]["0"])
+      # search.feed_id = @feed.id
+      # search.save
 
       @feed.collect_feed_items
 
