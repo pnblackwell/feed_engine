@@ -3,7 +3,7 @@ class Feed < ActiveRecord::Base
   has_many   :searches
   has_many :feed_items
 
-  attr_accessible :searches_attributes, :name, :subdomain
+  attr_accessible :searches_attributes, :name, :subdomain, :value, :search_type
 
   accepts_nested_attributes_for :searches, :allow_destroy => true
 

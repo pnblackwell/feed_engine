@@ -73,3 +73,19 @@
   font-size: 75%;
   margin: 0px;
 }
+
+.radio_button, .radio_label {
+    display: inline;
+}
+
+input[type="radio"]{
+  margin: 0px;
+}
+
+.radio_label{
+  font-size: 75%;
+}
+
+#new-feed-description{
+  font-size: 75%; 
+}
