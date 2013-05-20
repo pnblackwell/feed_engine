@@ -10,6 +10,9 @@
  *
  *= require_self
  *= require_tree .
+ *= require bootstrap_and_overrides
+ *= require supersized
+ *= require supersized.shutter
  */
 
 @import "twitter/bootstrap";
