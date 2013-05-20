@@ -34,10 +34,9 @@ background: -moz-linear-gradient(top, #484848, #383838);
 background: -webkit-gradient(linear, left top, left bottom, color-stop(0, #484848), color-stop(1, #383838));
 background: -webkit-linear-gradient(#484848, #383838);
 background: linear-gradient(top, #484848, #383838);
-display: block;
 padding:10px 20px;
 }
-#jPanelMenu-menu li a:active {
+/*#jPanelMenu-menu li a:active {
 background: #363636;
 background: -o-linear-gradient(top, #3e3e3e, #2e2e2e);
 background: -ms-linear-gradient(top, #3e3e3e, #2e2e2e);
@@ -51,7 +50,7 @@ box-shadow: 0 2px 7px #222 inset;
 border-top-color: #222;
 padding-top: 0.55em;
 padding-bottom: 0.45em;
-}
+}*/
 .jPanelMenu-panel {
 -moz-box-shadow: 0 0 25px #222;
 -webkit-box-shadow: 0 0 25px #222;

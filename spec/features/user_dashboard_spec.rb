@@ -22,7 +22,6 @@ describe 'user dashboard' do
       it 'creates a new feed and redirects to its show page' do
         log_in_user
         visit '/dashboard'
-        save_and_open_page
         click_link_or_button 'Create A New Feed'
 
         fill_in "feed_name", with: "Jen's Pics"

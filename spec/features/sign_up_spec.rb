@@ -2,11 +2,13 @@ require 'spec_helper'
 
 describe 'Sign up with Twitter' do
   it 'asks for an email address and logs the user in' do
-    mock_auth_hash
     visit root_path
+    mock_auth_hash
     click_link "signin"
     fill_in 'user[email]', with: 'user@example.com'
     click_button 'Submit'
+
+    save_and_open_page
 
     expect(current_path).to eq dashboard_path
     expect(page).to have_content 'mockuser'
