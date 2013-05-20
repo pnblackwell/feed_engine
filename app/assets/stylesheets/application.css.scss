@@ -1,4 +1,4 @@
-/*
+  /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
  *
@@ -14,51 +14,6 @@
 
 @import "twitter/bootstrap";
 @import "twitter/bootstrap/_responsive";
-
-body{
-  background-color: black;
-  color: #fff
-}
-
-
-.navbar {
-  background: none;
-  background-color: #555;
-  opacity: 0.9;
-  border: none;
-  border-bottom: 2px solid #777;
-
-  a {color: #fff;}
-}
-
-/* The outer div for the main body (not including the top nav bar) */
-.content {
-  color: #aaa;
-  padding-top: 60px;
-}
-
-#front-page-form {
-  float:left;
-}
-
-/* Bootstrap Modals Styling */
-.modal{
-  width: 320px;
-  left: 60%;
-  color: grey;
-}
-.modal-header{
-  background: none;
-  background-color: black;
-}
-
-.modal-body{
-  padding-left: 50px;
-}
-
-.modal-backdrop{
-  background-color: #ccc;
-}
 
 
 

@@ -27,6 +27,7 @@ describe 'user dashboard' do
         fill_in "feed_name", with: "Jen's Pics"
         fill_in "feed_subdomain", with: "jenspics"
         fill_in "value", with: "white raven photography"
+        find(:css, "#feed_searches_attributes_0_search_type_username").set(true)
         click_link_or_button "Create Feed"
 
         expect(page).to have_selector('img')

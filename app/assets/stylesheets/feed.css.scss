@@ -17,16 +17,49 @@
 .feed_title {
   text-align: center;
   font-family: Tahoma, sans-serif;
+  font-weight: bold;
   margin-top: 80px;
 }
 
 .show-photo{
   text-align: center;
   margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
   img{
-    border: 5px solid green;
-    width: 70%;
+    border: 3px solid #555;
+    width: 90%;
     height: auto;
+  }
+  .photo-options{
+    width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+
+    .photo-metadata{
+      margin-bottom: 70px;
+      width: 33%;
+      float: left;
+      text-align:left;
+
+      p{padding-left: 10px;}
+    }
+    .photo-buttons{
+      width: 33%;
+      height: 50px;
+      float:left;
+      button{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+    .photo-actions{
+      width:33%;
+      float:left;
+      text-align:right;
+    }
   }
 }
 
@@ -39,4 +72,20 @@
   font-style: italic;
   font-size: 75%;
   margin: 0px;
+}
+
+.radio_button, .radio_label {
+    display: inline;
+}
+
+input[type="radio"]{
+  margin: 0px;
+}
+
+.radio_label{
+  font-size: 75%;
+}
+
+#new-feed-description{
+  font-size: 75%; 
 }

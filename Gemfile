@@ -4,7 +4,7 @@ gem 'rails', '3.2.13'
 gem 'flickraw', '~> 0.9.6'
 gem 'omniauth-twitter', '~> 0.0.16'
 gem 'pg'
-gem 'figaro'
+gem 'resque', "~>1.24.0"
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -24,24 +24,12 @@ group :development, :test do
   gem 'pry'
   gem 'hirb'
   gem 'launchy'
+  gem 'dotenv-rails'
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 group :test do
   gem 'sqlite3'
   gem 'simplecov'
 end
-
-# To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
-
-# To use Jbuilder templates for JSON
-# gem 'jbuilder'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
-
-# To use debugger
-# gem 'debugger'

@@ -1,25 +1,53 @@
-<div class='content'>
-  <div class='form'>
-    <%= form_for @feed do |f| %>
-       <%= f.label 'Name Your New Feed' %>
-       <p class='note'>(e.g., Kittens Are Cute!)</p>
-       <%= f.text_field :name %>
-       <%= f.label "Give Your Feed Its Own Subdomain" %>
-       <p class='note'>(e.g., kittens. Please, no spaces or special characters.)</p> 
-       <%= f.text_field :subdomain %>
+<div id="newfeed" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="newfeedLabel" aria-hidden="true">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+      <h3 id="newfeedLabel">Create Your New Feed</h3>
+    </div>
+    <div class="modal-body">
+      <p id='new-feed-description'>Search Flickr for all your friends and favorite things! Type in a username or keyword, along
+        with the name and subdomain for your new feed. Thanks!
+      </p>
 
-    <%= f.fields_for :searches do |search_field| %>
-      <%= search_field.label 'Search by flickr Screen Name' %>
-      <a class='note' href="http://flickr.com ">What's a Flickr Screen Name?</a>
-      <%= search_field.text_field :value, id: 'value' %>
-      <%= search_field.hidden_field :search_type, :value => 'username' %>
-    <% end %>
+      <%= form_for @feed do |f| %>
+        <%= f.label 'Name Your New Feed' %>
+        <p class='note'>(e.g., Kittens Are Cute!)</p>
+        <%= f.text_field :name %>
+        <%= f.label "Give Your Feed Its Own Subdomain" %>
+        <p class='note'>(e.g., kittens. Please, no spaces or special characters.)</p>
+        <%= f.text_field :subdomain %>
 
-    <br>
+     <%= f.fields_for :searches do |search_field| %>
+          <%= search_field.label 'Search' %>
+          <a class='note' href="http://flickr.com ">What's a Flickr Screen Name?</a>
+          <%= search_field.text_field :value, id: 'value' %>
+          <%= search_field.label 'Select Search Type' %>
+          
+          <div>
+            <%= search_field.radio_button :search_type, :username, class:'radio_button' %>
+            <%= f.label :search_type, 'Screen Name', :value => 'username', class:'radio_label' %>
+          </div>
+          <div>
+            <%= search_field.radio_button :search_type, :keyword, class:'radio_button' %>
+            <%= f.label :search_type, 'Keyword', :value => 'keyword', class:'radio_label' %>
+          </div>
+        <% end %>
 
-    <%= f.submit "Create Feed", class: 'btn btn-large btn-primary', id:'create-feed' %>
-    <% end %>
+  <br>
+
+  <%= f.submit "Create Feed", class: 'btn btn-large btn-primary', id:'create-feed' %>
+<% end %>
+
+    </div>
   </div>
-</div>
+
+
+
+<script type="text/javascript">
+    $(window).load(function(){
+        $('#newfeed').modal('show');
+    });
+</script>
+  
+
 
 

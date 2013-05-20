@@ -1,3 +1,5 @@
+require 'resque/server'
+
 class FeedsController < ApplicationController
 
   def index
@@ -11,12 +13,23 @@ class FeedsController < ApplicationController
   end
 
   def create
+
     @feed = Feed.new(params[:feed])
+
     if @feed.save
+      search = Search.new(params[:feed][:searches_attributes]["0"])
+      search.feed_id = @feed.id
+      search.save
+
       @feed.collect_feed_items
-      #and start background worker looking for updates
-      #
-      #
+
+      #if i do the below, then its going to be slow for sure on first run, but what if we just
+      #do an immediate call here and save teh resque for updating/adding searches
+
+      #SETUP FOR USING RESQUE TO GET THE PHOTOS
+      # search_id = @feed.searches.first.id
+      # Resque.enqueue(PhotoFetcher, search_id)
+
       redirect_to root_url(subdomain: @feed.subdomain)
     else
       redirect_to new_feed_path, notice: "Oops! We failed to create your feed"
