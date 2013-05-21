@@ -8,13 +8,15 @@ class FiveHundred
   end
 
   def get_keyword_photo_objects(value, search)
-    photo_objects = JSON.parse(F00px.get("photos/search?term=#{value}&image_size=4").body)
-    reject_existing_photos(photo_objects, search)
-    # create_feed_items(search.feed_id, search.id, photo_objects)
+    get_photo_objects("photos/search?term=#{value}&image_size=4", search)
   end
 
   def get_username_photo_objects(value, search)
-    photo_objects = JSON.parse(F00px.get("photos?feature=user&username=#{value}&image_size=4").body)
+    get_photo_objects("photos?feature=user&username=#{value}&image_size=4", search)
+  end
+
+  def get_photo_objects(url, search)
+    photo_objects = JSON.parse(F00px.get(url).body)
     reject_existing_photos(photo_objects, search)
   end
 
