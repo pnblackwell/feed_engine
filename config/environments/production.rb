@@ -1,5 +1,5 @@
 FeedEngine::Application.configure do
-FeedEngine::Application.config.session_store :cookie_store, :key => '_tourlyapp_session', :domain => ".feed-photoline.herokuapp.com"
+FeedEngine::Application.config.session_store :cookie_store, :key => '_tourlyapp_session', :domain => ".photoline-feed.us"
 
   config.action_dispatch.tld_length = 2
   # Settings specified here will take precedence over those in config/application.rb
