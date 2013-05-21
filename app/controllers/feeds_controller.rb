@@ -41,4 +41,10 @@ class FeedsController < ApplicationController
     @feed = Feed.find_by_subdomain(request.subdomain)
     @feed_items = @feed.feed_items
   end
+
+  def destroy
+    @feed = Feed.find_by_id(params[:id])
+    @feed.destroy
+    redirect_to dashboard_path
+  end
 end
