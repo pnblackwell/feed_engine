@@ -1,5 +1,7 @@
 FeedEngine::Application.configure do
-  config.action_dispatch.tld_length = 2
+FeedEngine::Application.config.session_store :cookie_store, :key => '_tourlyapp_session', :domain => ".lvh.me"
+
+  # config.action_dispatch.tld_length = 2
   # Settings specified here will take precedence over those in config/application.rb
 
   # Code is not reloaded between requests
@@ -66,7 +68,7 @@ FeedEngine::Application.configure do
   # with SQLite, MySQL, and PostgreSQL)
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
 
-  config.action_mailer.default_url_options = { :host => 'photolines.herokuapp.com' }
+  config.action_mailer.default_url_options = { :host => 'feed-photoline.herokuapp.com' }
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     :address => "smtp.mandrillapp.com",
