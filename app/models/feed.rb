@@ -26,7 +26,7 @@ class Feed < ActiveRecord::Base
     searches = feed_sources.each do |source|
       feed.searches.create(search_type:   search_params[:search_type],
                            value:         search_params[:value],
-                           search_source: source
+                           source:        source
                           )
     end
   end
