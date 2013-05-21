@@ -3,7 +3,7 @@ require 'resque/server'
 FeedEngine::Application.routes.draw do
   mount Resque::Server, at: "/resque"
 
-  match '/', to: 'feeds#show', constraints: lambda { |r| warn "Route #{r.inspect}"; r.subdomain.present? && r.subdomain != 'www'}
+  match '/', to: 'feeds#show', constraints: lambda { |r| r.subdomain.present? && r.subdomain != 'www'}
   get  "/dashboard" =>"users#show", :as => 'dashboard'
 
   resources :feeds do
