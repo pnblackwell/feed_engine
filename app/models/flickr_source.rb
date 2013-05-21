@@ -18,6 +18,7 @@ class FlickrSource
 
   def reject_existing_photos(search_id, photos)
     feed_items = FeedItem.where(search_id: search_id)
+
     item_ids = feed_items.collect {|item| item.source_id}
 
     photos.reject! { |photo| item_ids.include? photo[:source_id] }
