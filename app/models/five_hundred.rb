@@ -14,7 +14,7 @@ class FiveHundred
 
   def get_username_photo_objects(value, search)
     photo_objects = JSON.parse(F00px.get("photos?feature=user&username=#{value}&image_size=4").body)
-    create_feed_items(search.feed_id, search.id, photo_objects)
+    reject_existing_photos(photo_objects, search)
   end
 
   def create_feed_items(feed_id, search_id, photo_objects)
@@ -32,5 +32,13 @@ class FiveHundred
                       photo_title: photo_tile,
                       owner:       owner, )
     end
+  end
+
+  def reject_existing_photos(photo_objects, search)
+    feed_items = search.feed_items
+    source_ids = feed_items.collect {|item| item.source_id}
+    photo_objects.reject! {|photo| source_ids.include? photo["id"]}
+
+    create_feed_items(feed_id, search_id, photo_objects)
   end
 end
