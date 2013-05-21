@@ -30,4 +30,20 @@ describe Feed do
     end
   end
 
+  describe 'deleting a feed' do
+    it 'deletes corresponding searches' do
+      feed1 = Feed.create(name: 'feed', subdomain: 'feed' )
+      feed1.destroy
+
+      expect(feed1.searches).to eq([])
+    end
+
+    it 'deletes corresponding feed_items' do
+      feed1 = Feed.create(name: 'feed', subdomain: 'feed')
+      feed1.destroy
+
+      expect(feed1.feed_items).to eq([])
+    end
+  end
+
 end
