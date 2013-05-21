@@ -6,7 +6,7 @@ describe Feed do
       it "generates feeds items & saves them to the db" do
         #THIS TEST NEEDS VCR OR A STUB FOR THE API
         feed = Feed.new(name: 'kittens', subdomain: "kittens")
-        search = feed.searches.new(search_type: 'username', value: 'jcasimir')
+        search = feed.searches.new(search_type: 'username', value: 'jcasimir', search_source: 'flickr')
         feed.save
         feed.collect_feed_items
 
@@ -18,8 +18,8 @@ describe Feed do
       it "generates feeds items & saves them to the db" do
         #THIS TEST NEEDS VCR OR A STUB FOR THE API
         feed = Feed.new(name: 'kittens', subdomain: "kittens")
-        search1 = feed.searches.new(search_type: 'username', value: 'jcasimir')
-        search2 = feed.searches.new(search_type: 'username', value: '-hndrk-')
+        search1 = feed.searches.new(search_type: 'username', value: 'jcasimir', search_source: 'flickr')
+        search2 = feed.searches.new(search_type: 'username', value: '-hndrk-', search_source: 'flickr')
         feed.save
         feed.collect_feed_items
 
