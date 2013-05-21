@@ -10,4 +10,25 @@ class Feed < ActiveRecord::Base
   def collect_feed_items
     searches.each { |search| search.generate_feed_items }
   end
+
+
+  def self.create_feed(params)
+    feed_params = params[:feed]
+    feed = Feed.create(name: feed_params[:name], subdomain: feed_params[:subdomain])
+
+    search_params = feed_params[:searches_attributes]["0"]
+    create_feed_searches(feed, search_params, params[:source])
+
+    feed
+  end
+
+  def self.create_feed_searches(feed, search_params, feed_sources)
+    searches = feed_sources.each do |source|
+      feed.searches.create(search_type:   search_params[:search_type],
+                           value:         search_params[:value],
+                           search_source: source
+                          )
+    end
+  end
 end
+

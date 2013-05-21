@@ -30,4 +30,18 @@ describe Feed do
     end
   end
 
+  describe ".create_feed" do
+    it "creates a feed and associated searches" do
+      params = {:feed =>{:name=>"dsfds", :subdomain=>"safdsf", :searches_attributes=>{"0"=>{:search_type=>"keyword", :value=>"kittens"}}}, :source=>["500px", "flickr"]}
+
+      feed = Feed.create_feed(params)
+
+      first_search  = feed.searches.first
+      second_search = feed.searches.last
+
+      expect(first_search.search_source).to eq "500px"
+      expect(second_search.search_source).to  eq "flickr"
+    end
+  end
+
 end
