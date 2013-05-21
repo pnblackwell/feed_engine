@@ -31,13 +31,24 @@ describe Feed do
   end
 
   describe 'validation' do
-    it 'doesnt allow two subdomains with the same name to be created' do
-      pending
-      feed1 = Feed.new(name: 'feed1', subdomain: 'feed')
-      search = feed1.searches.new(search_type: 'username', value: 'jcasimir')
+    it 'doesnt allow two feeds with the same subdomain name to be created' do
+      feed1 = Feed.create(name: 'feed1', subdomain: 'feed')
       feed2 = Feed.new(name: 'feed2', subdomain: 'feed')
 
       expect(feed2).to be_invalid
+    end
+
+    it 'doesnt allow two feeds with the same name to be created' do
+      feed1 = Feed.create(name: 'feed', subdomain: 'feed1')
+      feed2 = Feed.create(name: 'feed', subdomain: 'feed2')
+
+      expect(feed2).to be_invalid
+    end
+
+    it 'cleans up subdomains with parameterize' do
+      feed1 = Feed.create(name: 'feed', subdomain: 'i-really-really-like-feeds')
+
+      expect(feed1).to be_invalid
     end
   end
 end

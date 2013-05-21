@@ -7,7 +7,10 @@ class Feed < ActiveRecord::Base
 
   accepts_nested_attributes_for :searches, :allow_destroy => true
 
-  validates_uniqueness_of :subdomain
+  validates_presence_of :subdomain, :name
+  validates_uniqueness_of :subdomain, :name
+  validates :subdomain, :format => { :with => /\A[a-zA-Z]+\z/, :message => 'Please enter a valid subdomain'}
+
 
   def collect_feed_items
     searches.each { |search| search.generate_feed_items }
