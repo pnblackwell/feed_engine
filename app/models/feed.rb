@@ -18,6 +18,11 @@ class Feed < ActiveRecord::Base
     feed.searches.destroy
   end
 
+  validates_presence_of :subdomain, :name
+  validates_uniqueness_of :subdomain, :name
+  validates :subdomain, :format => { :with => /\A[a-zA-Z]+\z/, :message => 'Please enter a valid subdomain'}
+
+
   def collect_feed_items
     searches.each { |search| search.generate_feed_items }
   end
