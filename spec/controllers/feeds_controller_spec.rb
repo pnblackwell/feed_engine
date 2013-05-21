@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe FeedsController do
-  describe 'Feeds#new' do    
+  describe 'Feeds#new' do
     it 'renders the new feeds template' do
       user = User.create(provider: 'twitter', provider_id: 1, username: 'honey', email: 'w@w.com')
       controller.stub(:current_user).and_return(user)
@@ -16,14 +16,11 @@ describe FeedsController do
         user = User.create(provider: 'twitter', provider_id: 1, username: 'honey', email: 'w@w.com')
         controller.stub(:current_user).and_return(user)
 
-        post :create, { :feed =>
-                              { :name => 'kittens', :subdomain => 'kitties',
-                                :searches_attributes => {"0" =>{
-                                            :value => 'jcasimir',
-                                            :search_type => 'username'}}
-                              }
-                      }
-        expect(response).to redirect_to root_url(subdomain: 'kitties')
+        post :create, params: {:feed =>{:name=>"kiittens", :subdomain=>"kiitties",
+                       :searches_attributes=>{"0"=>{:search_type=>"username",
+                        :value=>"jcasimir"}}}, :source=> ["flickr"]}
+
+        expect(response).to redirect_to root_url(subdomain: 'kiitties')
       end
     end
 
@@ -32,13 +29,10 @@ describe FeedsController do
         user = User.create(provider: 'twitter', provider_id: 1, username: 'honey', email: 'w@w.com')
         controller.stub(:current_user).and_return(user)
 
-         post :create, { :feed =>
-                              { :name => 'kittens', :subdomain => 'kitties',
-                                :searches_attributes => {"0" =>{
-                                            :value => 'kittens',
-                                            :search_type => 'keyword'}}
-                              }
-                      }
+         post :create, params: {:feed =>{:name=>"kittens", :subdomain=>"kitties",
+                       :searches_attributes=>{"0"=>{:search_type=>"keyword",
+                        :value=>"cats"}}}, :source=> ["flickr"]}
+
         expect(response).to redirect_to root_url(subdomain: 'kitties')
       end
     end
