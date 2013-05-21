@@ -6,6 +6,7 @@ gem 'omniauth-twitter', '~> 0.0.16'
 gem 'pg'
 gem 'resque', "~>1.24.0"
 gem 'puma'
+gem 'f00px'
 
 # Gems used only for assets and not required
 # in production environments by default.

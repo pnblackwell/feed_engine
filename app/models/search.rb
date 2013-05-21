@@ -5,7 +5,10 @@ class Search < ActiveRecord::Base
   attr_accessible :search_type, :value, :search_source
 
   def generate_feed_items
-    # if self.source == 'flickr'
-    FlickrSource.new.add_items_for(self)
+    if self.search_source == "flickr"
+      FlickrSource.new.add_items_for(self)
+    else
+      FiveHundred.new.add_items_for(self)
+    end
   end
 end
