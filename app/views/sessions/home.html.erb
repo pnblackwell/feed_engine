@@ -8,11 +8,16 @@
           Create custom feeds from your favorite photographers and keyword searches from 500px and flickr.<br>
           Photoline lets you view all your photos in one place, is totally free and has no ads!
         </p>
+
         <br>
         <br>
         <br>
         <%= render "home.js" %>
       <%= render "shared/user_navigation" %>
+
+        <p> <%= link_to image_tag("signInWithTwitter.png"),"/auth/twitter" , id: 'signin' %></p>
+        <%= render partial: "home", formats: [:js] %>
+
      </div>
    </div>
   </div>
