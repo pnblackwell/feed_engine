@@ -13,9 +13,10 @@
         <br>
         <br>
         <%= render "home.js" %>
+
       <%= render "shared/user_navigation" %>
 
-        <p> <%= link_to image_tag("signInWithTwitter.png"),"/auth/twitter" , id: 'signin' %></p>
+
         <%= render partial: "home", formats: [:js] %>
 
      </div>
