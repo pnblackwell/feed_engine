@@ -30,4 +30,14 @@ describe Feed do
     end
   end
 
+  describe 'validation' do
+    it 'doesnt allow two subdomains with the same name to be created' do
+      pending
+      feed1 = Feed.new(name: 'feed1', subdomain: 'feed')
+      search = feed1.searches.new(search_type: 'username', value: 'jcasimir')
+      feed2 = Feed.new(name: 'feed2', subdomain: 'feed')
+
+      expect(feed2).to be_invalid
+    end
+  end
 end
