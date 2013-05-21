@@ -11,6 +11,11 @@ class Feed < ActiveRecord::Base
 
   accepts_nested_attributes_for :searches, :allow_destroy => true
 
+  after_destroy do |feed|
+    feed.feed_items.destroy
+    feed.searches.destroy
+  end
+  
   def collect_feed_items
     searches.each { |search| search.generate_feed_items }
   end
