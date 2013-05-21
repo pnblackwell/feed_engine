@@ -1,0 +1,9 @@
+ <%if current_user %>
+          <ul class="navLinks">
+              <li><%= current_user.username %></li>
+              <li><%= link_to "My dashboard", dashboard_path %></li>
+              <li><%= link_to "Sign out", signout_path %></li>
+          </ul>
+    <% else %>
+        <p> <%= link_to image_tag("signInWithTwitter.png"),"/auth/twitter" , id: 'signin' %></p>
+    <% end %>
