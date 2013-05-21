@@ -34,8 +34,8 @@ describe Flickr do
 
   describe '.clean_results' do
     it 'takes in the Flickr output and cleans it to just the info we want' do
-      results = [ {"id"=>"6335473183", "owner"=>"69341872@N00","secret"=>"d07e47ec51", "server"=>"6060", "farm"=>7, "title"=>"", "ispublic"=>1, "isfriend"=>0, "isfamily"=>0, "owner_name"=>"pookie"},
-                  {"id"=>"5738180053", "owner"=>"69341872@N00", "secret"=>"78e25a82de", "server"=>"2002", "farm"=>3, "title"=>"IMG_0962", "ispublic"=>1, "isfriend"=>0, "isfamily"=>0, "owner_name"=>"walnut"}
+      results = [ {"id"=>"6335473183", "owner"=>"69341872@N00","secret"=>"d07e47ec51", "server"=>"6060", "farm"=>7, "title"=>"", "ispublic"=>1, "isfriend"=>0, "isfamily"=>0, "ownername"=>"pookie"},
+                  {"id"=>"5738180053", "owner"=>"69341872@N00", "secret"=>"78e25a82de", "server"=>"2002", "farm"=>3, "title"=>"IMG_0962", "ispublic"=>1, "isfriend"=>0, "isfamily"=>0, "ownername"=>"walnut"}
                 ]
 
       cleaned_list = [{ source: 'flickr', source_id: 6335473183, photo_title: "", owner: "pookie",
