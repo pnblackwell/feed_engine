@@ -19,6 +19,7 @@ class SessionsController < ApplicationController
   end
 
   def home
+    render layout: 'full_screen_photo_page'
   end
 end
 
