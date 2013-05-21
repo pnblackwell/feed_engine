@@ -1,4 +1,4 @@
-require 'resque/server'
+  require 'resque/server'
 
 class FeedsController < ApplicationController
   before_filter :require_login, only: [:new, :create]
