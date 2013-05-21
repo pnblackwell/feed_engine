@@ -40,6 +40,6 @@ class FiveHundred
     source_ids = feed_items.collect {|item| item.source_id}
     photo_objects.reject! {|photo| source_ids.include? photo["id"]}
 
-    create_feed_items(feed_id, search_id, photo_objects)
+    create_feed_items(search.feed_id, search.id, photo_objects)
   end
 end

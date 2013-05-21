@@ -12,6 +12,20 @@ describe Feed do
 
         expect(feed.feed_items.first.feed_id).to eq(feed.id)
       end
+
+      it 'creates search object' do
+        feed = described_class.new(name: 'j3', subdomain: 'j3', search_type: 'username', value: 'jcasimir', sources: ['flickr'])
+        feed.save!
+        feed.searches.count.should eq 1
+      end
+    end
+
+    context 'with two sources' do
+      it 'creates two search objects' do
+        feed = described_class.new(name: 'j3', subdomain: 'j3', search_type: 'username', value: 'jcasimir', sources: ['flickr', '500px'])
+        feed.save!
+        feed.searches.count.should eq 2
+      end
     end
 
     context 'with two searches and one source' do
@@ -29,19 +43,4 @@ describe Feed do
       end
     end
   end
-
-  describe ".create_feed" do
-    it "creates a feed and associated searches" do
-      params = {:feed =>{:name=>"dsfds", :subdomain=>"safdsf", :searches_attributes=>{"0"=>{:search_type=>"keyword", :value=>"kittens"}}}, :source=>["500px", "flickr"]}
-
-      feed = Feed.create_feed(params)
-
-      first_search  = feed.searches.first
-      second_search = feed.searches.last
-
-      expect(first_search.source).to eq "500px"
-      expect(second_search.source).to  eq "flickr"
-    end
-  end
-
 end
