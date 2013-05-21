@@ -1,0 +1,28 @@
+.container.signup {
+  margin: 100px auto;
+  padding: 50px;
+  float: center;
+  color: #fff;
+  font-weight: bold;
+  background-color:rgba(0, 0, 0, 0.6);
+  width: 615px;
+  height: 300px;
+
+  h1#logo {
+    color:#fff;
+    margin-bottom:40px;
+    border-bottom:1px solid rgba(255,255,255, 0.15);
+    padding-bottom:20px;
+    font-size:48px;
+  }
+
+  p {
+    line-height:2em;
+    font-size:16px;
+    font-weight:normal;
+  }
+
+  .navLinks{
+    float:none;
+  }
+}

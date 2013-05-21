@@ -4,9 +4,10 @@ gem 'rails', '3.2.13'
 gem 'flickraw', '~> 0.9.6'
 gem 'omniauth-twitter', '~> 0.0.16'
 gem 'pg'
-gem 'resque', "~>1.24.0"
 gem 'puma'
 gem 'f00px'
+gem 'resque', "~>1.24.0"
+gem 'resque-scheduler', :require => 'resque_scheduler'
 
 # Gems used only for assets and not required
 # in production environments by default.

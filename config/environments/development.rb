@@ -1,5 +1,6 @@
 FeedEngine::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
+  FeedEngine::Application.config.session_store :cookie_store, :key => '_tourlyapp_session', :domain => ".lvh.me"
 
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
@@ -44,6 +45,8 @@ FeedEngine::Application.configure do
     address: "localhost",
     port: 1025,
   }
+
+  ENV['REDISTOGO_URL'] = "redis://localhost:6379"
 
   # Specify what domain to use for mailer URLs
   config.action_mailer.default_url_options = {host: "localhost:3000"}
