@@ -7,6 +7,8 @@ class Feed < ActiveRecord::Base
   has_many   :searches
   has_many :feed_items
 
+  validates_uniqueness_of :subdomain
+
   attr_accessible :searches_attributes, :name, :subdomain, :value, :search_type, :sources
 
   accepts_nested_attributes_for :searches, :allow_destroy => true
@@ -15,7 +17,7 @@ class Feed < ActiveRecord::Base
     feed.feed_items.destroy
     feed.searches.destroy
   end
-  
+
   def collect_feed_items
     searches.each { |search| search.generate_feed_items }
   end
