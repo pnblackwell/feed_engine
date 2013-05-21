@@ -1,3 +1,12 @@
-<% @feeds.each do |x| %>
-<%= puts x.user %>
-<% end %>
+<div class="content">
+  <% @feeds.each do |feed| %>
+   <%= feed.name %>
+     <% feed_items = feed.feed_items %>
+      <p class="thumbnails">
+    <% feed_items.each do |feed_item| %>
+      <%= image_tag(feed_item.photo_url) %>
+    <% end %> 
+      </p>
+  <% end %> 
+</div>
+

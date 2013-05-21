@@ -4,7 +4,7 @@ class FeedsController < ApplicationController
   before_filter :require_login, only: [:new, :create]
 
   def index
-    @feeds = Feed.find_by_user_id(current_user.id)
+    @feeds =  Feed.where(:user_id => current_user.id)
   end
 
   def new
