@@ -65,12 +65,4 @@ ActiveRecord::Schema.define(:version => 20130520200601) do
     t.datetime "updated_at",  :null => false
   end
 
-  create_table "users_authorizations", :force => true do |t|
-    t.string   "provider"
-    t.string   "provider_id"
-    t.string   "username"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
-  end
-
 end
