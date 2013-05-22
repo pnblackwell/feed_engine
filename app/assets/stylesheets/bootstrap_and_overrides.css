@@ -109,3 +109,8 @@ a:hover{
 #logo a {
   color:#fff;
 }
+
+.twitterButton {
+  float: right;
+  margin-top: 10px;
+}
