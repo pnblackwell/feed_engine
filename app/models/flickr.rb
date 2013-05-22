@@ -35,7 +35,7 @@ class Flickr
                 { source: 'flickr',
                   source_id: result['id'].to_i,
                   photo_title: result['title'],
-                  owner: result['owner_name'],
+                  owner: result['ownername'],
                   photo_url: "http://farm#{result['farm']}.staticflickr.com/#{result['server']}/#{result['id']}_#{result['secret']}.jpg"
                 }
               end

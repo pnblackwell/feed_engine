@@ -8,7 +8,9 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to dashboard_path
     else
-      session[:omniauth_results] = request.env['omniauth.auth']
+      user_info = User.parse_user_info(request.env['omniauth.auth'])
+      session[:user_info] = user_info
+
       redirect_to new_user_path
     end
   end

@@ -7,9 +7,7 @@ class UsersController < ApplicationController
 
   def create
     user_details_from_form = params[:user]
-    user_details_from_omniauth = omniauth_user_info(session[:omniauth_results])
-
-    @user = User.create(user_details_from_form.merge(user_details_from_omniauth))
+    @user = User.create(user_details_from_form.merge(session[:user_info]))
     if @user.save
       session[:user_id] = @user.id
       redirect_to dashboard_path
@@ -19,18 +17,12 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+    @user = User.find_by_id(params[:id])
+  end
+
   def show
     @user = current_user
     @feeds = @user.feeds
-  end
-
-private
-
-  def omniauth_user_info(omniauth_details)
-    username = omniauth_details['info']['nickname']
-    provider = omniauth_details['provider']
-    provider_id = omniauth_details['uid']
-
-    {username: username, provider: provider, provider_id: provider_id}
   end
 end

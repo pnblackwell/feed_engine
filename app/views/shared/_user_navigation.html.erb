@@ -5,5 +5,7 @@
               <li><%= link_to "Sign out", signout_path %></li>
           </ul>
     <% else %>
-        <p> <%= link_to image_tag("signInWithTwitter.png"),"/auth/twitter" , id: 'signin' %></p>
+        <p class="twitterButton">
+          <%= link_to image_tag("signInWithTwitter.png"),"/auth/twitter" , id: 'signin' %>
+        </p>
     <% end %>
