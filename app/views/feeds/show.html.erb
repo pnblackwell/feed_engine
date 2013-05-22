@@ -6,7 +6,7 @@
 
     <% @feed_items.each do |item| %>
     <div class='show-photo hidden'>
-      <p><%= image_tag(item.photo_url) %></p>
+      <p id="feed_photo"><%= image_tag(item.photo_url) %></p>
       <div class='photo-options'>
         <div class='photo-metadata'>
           <% if item.photo_title != '' %>
@@ -22,10 +22,7 @@
           <button class='slideup btn btn-inverse'><i class='icon-chevron-down icon-white'></i></button>
         </div>
 
-        <div class='photo-actions'>
-          <button class='btn btn-inverse'><i class='icon-star icon-white'></i> Love it!</button>
-          <button class='btn btn-inverse'><i class='icon-plus icon-white'></i> Add To Your Feed</button>
-        </div>
+
       </div>
     </div>
     <% end %>
