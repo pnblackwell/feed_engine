@@ -10,7 +10,6 @@
 
       <div class="tab-pane active" id='manageFeeds'>
 
-<<<<<<< HEAD
           <div class="container-fluid">
               <% if @feeds.present? %>
               <% @feeds.each do |feed| %> 
@@ -24,27 +23,6 @@
                       <% feed.feed_items[0..9].each do |feed|%>
                         <%= image_tag(feed.photo_url, :size => "200x200") %>
                       <%end %>
-=======
-      <!-- needs a real link! -->
-      <p> Your email address: <%= @user.email %></p>
-      <p><%= link_to 'Update Email', root_path %></p>
-      <% link_to "Disable Your Account", root_path %>
-    </div>
-
-    <div class="tab-pane" id='manageFeeds'>
-
-        <div class="container-fluid">
-            <% if @feeds.present? %>
-            <% @feeds.each do |feed| %> 
-          <div class="row-fluid">
-            <div class="span2">
-              <h4><%= feed.name %></h4>
-              <p> Visit Your Feed: <%= link_to root_url(subdomain: feed.subdomain) %></p>
-              <%= button_to "Delete", {:controller => :feeds, :action => 'destroy', :id => feed.id }, :method => :delete, class:'btn btn-danger' %>
-            </div>
-            <div class="span10">
-              <h3>Searches in This Feed</h3>
->>>>>>> master
 
                       <% if feed.searches.any? %>
                         <table class="table table-striped">
@@ -64,12 +42,9 @@
                   <% end %>
             </div>
           </div>
-<<<<<<< HEAD
           <hr>
-=======
           </tbody>
           </table>
->>>>>>> master
           <% end %>
 
 
@@ -85,7 +60,7 @@
 
           <!-- needs a real link! -->
           <p> Your email address: <%= @user.email %></p>
-          <p><%= link_to 'Update Email', root_path %></p>
+          <p><%= link_to 'Update Email', edit_user_path(current_user.id) %></p>
           <% link_to "Disable Your Account", root_path %>
         </div>
     </div>
