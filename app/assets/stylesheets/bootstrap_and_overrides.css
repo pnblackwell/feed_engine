@@ -88,6 +88,12 @@ transition: all 0.2s ease-in-out;
   color: #fff;
 }
 
+.modal-flash{
+  font-size:80%;
+  margin: 0px;
+  padding:0px;
+}
+
 .modal-body{
   padding-left: 50px;
   overflow-y: visible;
