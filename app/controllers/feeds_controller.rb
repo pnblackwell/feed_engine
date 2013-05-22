@@ -8,7 +8,6 @@ class FeedsController < ApplicationController
     @feeds.each do |feed|
       feed.feed_items.each do |feed_item|
         @image = MiniMagick::Image.open(feed_item.photo_url)
-        fail
       end
     end
     # @thumbnail = resize_and_crop(@image, size(in_px))

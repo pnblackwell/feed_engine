@@ -16,7 +16,7 @@
             <div class="row-fluid">
               <div class="span2">
                 <h4><%= feed.name %></h4>
-                <p> Visit Your Feed: <%= link_to root_url(subdomain: feed.subdomain) %></p>
+                <p> Visit Your Feed: <%= link_to feed.subdomain+'.photoline-feed.us/', root_url(subdomain: feed.subdomain) %></p>
               </div>
               <div class="span10">
                 <h3>Searches in This Feed</h3>

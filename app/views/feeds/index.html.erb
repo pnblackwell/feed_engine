@@ -1,4 +1,4 @@
-<div class="content">
+<!-- <div class="content">
   <% @feeds.each do |feed| %>
    <%= feed.name %>
      <% feed_items = feed.feed_items %>
@@ -8,5 +8,40 @@
     <% end %> 
       </p>
   <% end %> 
-</div>
+</div> -->
 
+
+
+
+<div class="container-fluid">
+              <% if @feeds.present? %>
+              <% @feeds.each do |feed| %> 
+            <div class="row-fluid">
+              <div class="span2">
+                <h4><%= feed.name %></h4>
+                <p> Visit Your Feed: <%= link_to root_url(subdomain: feed.subdomain) %></p>
+              </div>
+              <div class="span10">
+                <h3>Searches in This Feed</h3>
+                <% feed.feed_items.each do |feed|%>
+                  <%= image_tag(feed.photo_url, :size => "200x200") %>
+                <%end %>
+
+                <% if feed.searches.any? %>
+                  <table class="table table-striped">
+                  <tbody>
+                  <thead>
+                </thead>
+                
+                <% feed.searches.each do |search| %>
+                  <tr>
+                  </tr>
+                <% end %>
+              </div>
+              </div>
+            </div>
+                  </tbody>
+                  </table>
+                <% end %>
+            </div>
+          </div>
