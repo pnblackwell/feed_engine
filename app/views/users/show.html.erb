@@ -20,26 +20,26 @@
               </div>
               <div class="span10">
                 <h3>Searches in This Feed</h3>
-                <% feed.feed_items.each do |feed|%>
-                  <%= image_tag(feed.photo_url, :size => "200x200") %>
-                <%end %>
+                      <% feed.feed_items.each do |feed|%>
+                        <%= image_tag(feed.photo_url, :size => "200x200") %>
+                      <%end %>
 
-                <% if feed.searches.any? %>
-                  <table class="table table-striped">
-                  <tbody>
-                  <thead>
-                </thead>
-                
-                <% feed.searches.each do |search| %>
-                  <tr>
-                  </tr>
-                <% end %>
-              </div>
-              </div>
-            </div>
-                  </tbody>
-                  </table>
-            <% end %>
+                      <% if feed.searches.any? %>
+                        <table class="table table-striped">
+                        <tbody>
+                        <thead>
+                      </thead>
+                      
+                      <% feed.searches.each do |search| %>
+                        <tr>
+                        </tr>
+                      <% end %>
+                    </div>
+                    </div>
+                  </div>
+                        </tbody>
+                        </table>
+                  <% end %>
             </div>
           </div>
           <hr>
