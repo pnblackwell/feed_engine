@@ -16,9 +16,10 @@ describe FeedsController do
         user = User.create(provider: 'twitter', provider_id: 1, username: 'honey', email: 'w@w.com')
         controller.stub(:current_user).and_return(user)
 
-        post :create, params: {:feed =>{:name=>"kiittens", :subdomain=>"kiitties",
+        post :create, :feed =>{:name=>"kiittens", :subdomain=>"kiitties",
                        :searches_attributes=>{"0"=>{:search_type=>"username",
-                        :value=>"jcasimir"}}}, :source=> ["flickr"]}
+                        :value=>"jcasimir"}}}, :source=> ["flickr"]
+
 
         expect(response).to redirect_to root_url(subdomain: 'kiitties')
       end
@@ -29,9 +30,10 @@ describe FeedsController do
         user = User.create(provider: 'twitter', provider_id: 1, username: 'honey', email: 'w@w.com')
         controller.stub(:current_user).and_return(user)
 
-         post :create, params: {:feed =>{:name=>"kittens", :subdomain=>"kitties",
+         post :create, :feed =>{:name=>"kittens", :subdomain=>"kitties",
                        :searches_attributes=>{"0"=>{:search_type=>"keyword",
-                        :value=>"cats"}}}, :source=> ["flickr"]}
+                        :value=>"cats"}}}, :source=> ["flickr"]
+
 
         expect(response).to redirect_to root_url(subdomain: 'kitties')
       end
