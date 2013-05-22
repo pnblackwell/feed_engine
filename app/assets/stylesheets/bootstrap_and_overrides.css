@@ -80,6 +80,7 @@ transition: all 0.2s ease-in-out;
 
 .modal-body{
   padding-left: 50px;
+  overflow-y: visible;
 }
 
 .modal-backdrop{
@@ -133,4 +134,8 @@ transition: all 0.2s ease-in-out;
   width: 70%;
   margin-left: auto;
   margin-right: auto;
+}
+
+.feed_modal {
+  height: 630px;
 }
