@@ -1,5 +1,9 @@
 class FiveHundred
 
+  class ResponseError < StandardError
+  end
+
+
   def add_items_for(search)
     search_type = search.search_type
     value       = search.value
@@ -17,6 +21,11 @@ class FiveHundred
 
   def get_photo_objects(url, search)
     photo_objects = JSON.parse(F00px.get(url).body)
+    # {error=>'no user with this username'}
+    if photo_objects["error"].present?
+      raise ResponseError.new(photo_objects["error"])
+    end
+
     reject_existing_photos(photo_objects, search) if !photo_objects["error"].present?
   end
 
