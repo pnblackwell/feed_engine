@@ -1,11 +1,10 @@
-<div id="newfeed" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="newfeedLabel" aria-hidden="true">
+<div id="newfeed" class="modal hide fade feed_modal" tabindex="-1" role="dialog" aria-labelledby="newfeedLabel" aria-hidden="true">
     <div class="modal-header">
       <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
       <h3 id="newfeedLabel">Create Your New Feed</h3>
     </div>
     <div class="modal-body">
-      <p id='new-feed-description'>Search Flickr for all your friends and favorite things! Type in a username or keyword, along
-        with the name and subdomain for your new feed. Thanks!
+      <p id='new-feed-description'>Search flickr and 500px for some awesomeness!
       </p>
 
       <%= form_for @feed do |f| %>
@@ -49,7 +48,7 @@
 <% end %>
 
     </div>
-  </div>
+</div>
 
 
 
