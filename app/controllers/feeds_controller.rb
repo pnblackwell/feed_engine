@@ -5,8 +5,13 @@ class FeedsController < ApplicationController
 
   def index
     @feeds = Feed.where(:user_id => current_user.id)
-    @image = MiniMagick::Image.open(@feeds.feed_item.photo_url).first
-    @thumbnail = resize_and_crop(@image, size(in_px))
+    @feeds.each do |feed|
+      feed.feed_items.each do |feed_item|
+        @image = MiniMagick::Image.open(feed_item.photo_url)
+        fail
+      end
+    end
+    # @thumbnail = resize_and_crop(@image, size(in_px))
   end
 
   def new
