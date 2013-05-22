@@ -14,13 +14,7 @@ class FeedsController < ApplicationController
   end
 
   def create
-    if params[:source] == ["flickr"]
-      @feed = Feed.new(params[:feed])
-      @feed.user_id = current_user.id
-    else
-      @feed = Feed.create_feed(params)
-      @feed.user_id = current_user.id
-    end
+    @feed = current_user.feeds.new(params[:feed])
 
     if @feed.save
       # search = Search.new(params[:feed][:searches_attributes]["0"])
