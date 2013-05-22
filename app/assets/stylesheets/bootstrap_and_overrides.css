@@ -16,6 +16,14 @@ a:hover{
   text-decoration: none;
 }
 
+.flash{
+  color: #fff;
+  background-color: black;
+  font-size: 115%;
+  font-style: italic;
+  padding: 5px;
+}
+
 .thumbnail{
 display: block;
 padding: 4px;
