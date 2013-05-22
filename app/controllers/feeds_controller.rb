@@ -34,6 +34,10 @@ class FeedsController < ApplicationController
 
   def show
     @feed = Feed.find_by_subdomain(request.subdomain)
+    if @feed.nil?
+      flash.notice = 'Feed Does Not Exist'
+      redirect_to(root_url(subdomain: false)) and return
+    end
     @feed_items = @feed.feed_items
   end
 
