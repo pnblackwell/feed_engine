@@ -20,23 +20,18 @@
               </div>
               <div class="span10">
                 <h3>Searches in This Feed</h3>
+                <% feed.feed_items.each do |feed|%>
+                  <%= image_tag(feed.photo_url, :size => "200x200") %>
+                <%end %>
 
                 <% if feed.searches.any? %>
                   <table class="table table-striped">
                   <tbody>
                   <thead>
-                    <tr>
-                      <th>Search Type</th>
-                      <th>Search Term</th>
-                      <th>Source</th>
-                    </tr>
                 </thead>
                 
                 <% feed.searches.each do |search| %>
                   <tr>
-                    <td><%= search.search_type %></td>
-                    <td><%= search.value %></td>
-                    <td><%= search.source %></td>
                   </tr>
                 <% end %>
               </div>
