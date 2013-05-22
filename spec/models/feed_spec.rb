@@ -34,6 +34,7 @@ describe Feed do
         feed = Feed.new(name: 'kittens', subdomain: "kittens")
         search1 = feed.searches.new(search_type: 'username', value: 'jcasimir', source: 'flickr')
         search2 = feed.searches.new(search_type: 'username', value: '-hndrk-', source: 'flickr')
+
         feed.save
         feed.collect_feed_items
 

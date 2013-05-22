@@ -8,6 +8,8 @@ gem 'puma'
 gem 'f00px'
 gem 'resque', "~>1.24.0"
 gem 'resque-scheduler', :require => 'resque_scheduler'
+gem 'f00px'
+
 
 # Gems used only for assets and not required
 # in production environments by default.

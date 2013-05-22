@@ -20,6 +20,7 @@ describe FeedsController do
                        :searches_attributes=>{"0"=>{:search_type=>"username",
                         :value=>"jcasimir"}}}, :source=> ["flickr"]
 
+
         expect(response).to redirect_to root_url(subdomain: 'kiitties')
       end
     end
@@ -32,6 +33,7 @@ describe FeedsController do
          post :create, :feed =>{:name=>"kittens", :subdomain=>"kitties",
                        :searches_attributes=>{"0"=>{:search_type=>"keyword",
                         :value=>"cats"}}}, :source=> ["flickr"]
+
 
         expect(response).to redirect_to root_url(subdomain: 'kitties')
       end
