@@ -13,8 +13,9 @@
  *= require bootstrap_and_overrides
  *= require supersized
  *= require supersized.shutter
- *= full_screen_photo_page
+ *= require full_screen_photo_page
  */
+
 
 @import "twitter/bootstrap";
 @import "twitter/bootstrap/_responsive";
