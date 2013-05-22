@@ -73,13 +73,16 @@ transition: all 0.2s ease-in-out;
   left: 60%;
   color: grey;
 }
+
 .modal-header{
   background: none;
   background-color: black;
+  color: #fff;
 }
 
 .modal-body{
   padding-left: 50px;
+  overflow-y: visible;
 }
 
 .modal-backdrop{
@@ -135,6 +138,10 @@ transition: all 0.2s ease-in-out;
   margin-right: auto;
 }
 
+.feed_modal {
+  height: 630px;
+}
+
 #email_form {
   text-align: center;
 }
@@ -144,8 +151,6 @@ transition: all 0.2s ease-in-out;
   margin-top: 200px;
   font-size: 200%;
 }
-
-
 
 #user_email {
   width: 600px;

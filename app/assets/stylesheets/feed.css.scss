@@ -64,6 +64,10 @@
   margin-top: 8px;
 }
 
+.newfeedLabel{
+  color:#fff;
+}
+
 .note{
   font-style: italic;
   font-size: 75%;
@@ -84,6 +88,12 @@ input[type="radio"]{
 
 #new-feed-description{
   font-size: 75%;
+}
+
+.modal-label{
+  padding-top: 10px;
+  font-weight: bold;
+  color: #444;
 }
 
 .thumbnails{
