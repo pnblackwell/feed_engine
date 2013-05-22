@@ -42,6 +42,6 @@ class Flickr
   end
 
   def get_user_id(username)
-    flickr.people.findByUsername(username: username)
+    flickr.people.findByUsername(username: username).id
   end
 end

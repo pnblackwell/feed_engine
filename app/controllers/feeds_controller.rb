@@ -19,12 +19,16 @@ class FeedsController < ApplicationController
     if @feed.save
       begin
         @feed.collect_feed_items
-      rescue FlickRaw::FailedResponse
+
+      rescue FlickRaw::FailedResponse, FiveHundred::ResponseError
+        flash.notice = 'Invalid Feed!'
         redirect_to(new_feed_path) and return
       end
+
       redirect_to root_url(subdomain: @feed.subdomain)
     else
-      redirect_to new_feed_path, notice: "Oops! We failed to create your feed"
+      flash.notice = "Oops! We failed to create your feed"
+      redirect_to new_feed_path
     end
   end
 
