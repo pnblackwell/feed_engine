@@ -18,7 +18,7 @@
   text-align: center;
   font-family: Tahoma, sans-serif;
   font-weight: bold;
-  margin-top: 80px;
+  margin-top: 10px;
 }
 
 .show-photo{
@@ -49,11 +49,7 @@
       width: 33%;
       height: 50px;
       float:left;
-      button{
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-      }
+
     }
     .photo-actions{
       width:33%;
@@ -87,7 +83,7 @@ input[type="radio"]{
 }
 
 #new-feed-description{
-  font-size: 75%; 
+  font-size: 75%;
 }
 
 .thumbnails{

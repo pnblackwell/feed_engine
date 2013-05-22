@@ -17,6 +17,7 @@
               <div class="span2">
                 <h4><%= feed.name %></h4>
                 <p> Visit Your Feed: <%= link_to feed.subdomain+'.photoline-feed.us/', root_url(subdomain: feed.subdomain) %></p>
+                <%= button_to "Delete", {:controller => :feeds, :action => 'destroy', :id => feed.id }, :method => :delete, class:'btn btn-danger' %>
               </div>
               <div class="span10">
                 <h3>Feed Sampling</h3>
@@ -58,7 +59,6 @@
               <span id= 'username'> <%= @user.username %> </span>
           </h1>
 
-          <!-- needs a real link! -->
           <p> Your email address: <%= @user.email %></p>
           <p><%= link_to 'Update Email', edit_user_path(current_user.id) %></p>
           <% link_to "Disable Your Account", root_path %>
