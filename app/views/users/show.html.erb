@@ -3,65 +3,66 @@
   <%= link_to "Create A New Feed", new_feed_path, id: 'newfeedbutton', class: 'btn btn-primary' %>
 
   <ul class='nav nav-tabs'>
-    <li class='active'><a href="#myAccount" data-toggle="tab">My Account</a></li>
-    <li><a href="#manageFeeds" data-toggle="tab">Manage Feeds</a></li>
+    <li class='active'><a href="#manageFeeds" data-toggle="tab">Manage Feeds</a></li>
+    <li><a href="#myAccount" data-toggle="tab">My Account</a></li>
   </ul>
+   <div class='tab-content'>
 
-  <div class='tab-content'>
-    <div class='tab-pane active' id='myAccount'>
-      <h1> Account Information For:
-          <span id= 'username'> <%= @user.username %> </span>
-      </h1>
+      <div class="tab-pane active" id='manageFeeds'>
 
-      <p> Your email address: <%= @user.email %></p>
-      <p><%= link_to 'Update Email', edit_user_path(current_user) %></p>
-    </div>
+          <div class="container-fluid">
+              <% if @feeds.present? %>
+              <% @feeds.each do |feed| %> 
+            <div class="row-fluid">
+              <div class="span2">
+                <h4><%= feed.name %></h4>
+                <p> Visit Your Feed: <%= link_to feed.subdomain+'.photoline-feed.us/', root_url(subdomain: feed.subdomain) %></p>
+                <%= button_to "Delete", {:controller => :feeds, :action => 'destroy', :id => feed.id }, :method => :delete, class:'btn btn-danger' %>
+              </div>
+              <div class="span10">
+                <h3>Feed Sampling</h3>
+                      <% feed.feed_items[0..9].each do |feed|%>
+                        <%= image_tag(feed.photo_url, :size => "200x200") %>
+                      <%end %>
 
-    <div class="tab-pane" id='manageFeeds'>
-
-        <div class="container-fluid">
-            <% if @feeds.present? %>
-            <% @feeds.each do |feed| %>
-          <div class="row-fluid">
-            <div class="span2">
-              <h4><%= feed.name %></h4>
-              <p> Visit Your Feed: <%= link_to root_url(subdomain: feed.subdomain) %></p>
-              <%= button_to "Delete", {:controller => :feeds, :action => 'destroy', :id => feed.id }, :method => :delete, class:'btn btn-danger' %>
-            </div>
-            <div class="span10">
-              <h3>Searches in This Feed</h3>
-
-              <% if feed.searches.any? %>
-                <table class="table table-striped">
-                <tbody>
-                <thead>
-                  <tr>
-                    <th>Search Type</th>
-                    <th>Search Term</th>
-                    <th>Source</th>
-                  </tr>
-              </thead>
-
-              <% feed.searches.each do |search| %>
-                <tr>
-                  <td><%= search.search_type %></td>
-                  <td><%= search.value %></td>
-                  <td><%= search.source %></td>
-                </tr>
-              <% end %>
-            </div>
+                      <% if feed.searches.any? %>
+                        <table class="table table-striped">
+                        <tbody>
+                        <thead>
+                      </thead>
+                      
+                      <% feed.searches.each do |search| %>
+                        <tr>
+                        </tr>
+                      <% end %>
+                    </div>
+                    </div>
+                  </div>
+                        </tbody>
+                        </table>
+                  <% end %>
             </div>
           </div>
+          <hr>
           </tbody>
           </table>
           <% end %>
-          </div>
-        </div>
-        <hr>
+
+
+        <% else %>
+            You Don't Have Any Feeds Yet! Create One.
         <% end %>
-      <% else %>
-          You Don't Have Any Feeds Yet! Create One.
-      <% end %>
+      </div>
+    </div>
+        <div class='tab-pane' id='myAccount'>
+          <h1> Account Information For:
+              <span id= 'username'> <%= @user.username %> </span>
+          </h1>
+
+          <p> Your email address: <%= @user.email %></p>
+          <p><%= link_to 'Update Email', edit_user_path(current_user.id) %></p>
+          <% link_to "Disable Your Account", root_path %>
+        </div>
     </div>
   </div>
 

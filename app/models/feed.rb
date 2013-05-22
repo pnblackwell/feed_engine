@@ -31,5 +31,6 @@ class Feed < ActiveRecord::Base
                       source: source)
     end
   end
+
 end
 
