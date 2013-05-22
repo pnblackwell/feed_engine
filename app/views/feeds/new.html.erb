@@ -8,14 +8,14 @@
       </p>
 
       <%= form_for @feed do |f| %>
-        <%= f.label 'Name Your New Feed' %>
+        <%= f.label 'Name Your New Feed', class:'modal-label' %>
         <p class='note'>(e.g., Kittens Are Cute!)</p>
         <%= f.text_field :name %>
-        <%= f.label "Give Your Feed Its Own Subdomain" %>
+        <%= f.label "Give Your Feed Its Own Subdomain", class:'modal-label' %>
         <p class='note'>(e.g., kittens. Please, no spaces or special characters.)</p>
         <%= f.text_field :subdomain %>
 
-          <%= f.label "What sites do you want to search?" %>
+          <%= f.label "What sites do you want to search?", class:'modal-label' %>
           <div>
             <label class="checkbox inline">
               <input type="checkbox" name="feed[sources][]" id="inlineCheckbox1" value="500px"> 500px
@@ -24,7 +24,7 @@
               <input type="checkbox" name="feed[sources][]" id="inlineCheckbox2" value="flickr"> flickr
             </label>
           </div>
-          <%= f.label 'Select Search Type' %>
+          <%= f.label 'Select Search Type', class:'modal-label' %>
           <div>
             <label>
               <%= f.radio_button :search_type, :username, class:'radio_button' %>
@@ -38,13 +38,13 @@
             </label>
           </div>
 
-          <%= f.label 'Search' %>
+          <%= f.label 'Search', class:'modal-label' %>
           <p class='note'>(e.g., kittens, boots, zombies.)</p>
           <%= f.text_field :value, id: 'value' %>
 
   <br>
 
-  <%= f.submit "Create Feed", class: 'btn btn-large btn-primary', id:'create-feed' %>
+  <%= f.submit "Create Feed", class: 'btn btn-large btn-inverse', id:'create-feed' %>
 <% end %>
 
     </div>
