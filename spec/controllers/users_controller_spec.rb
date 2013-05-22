@@ -46,8 +46,6 @@ describe UsersController do
 
       expect(session[:user_id]).to eq User.last.id
     end
-
-    it 'does something when the create fails'
   end
 
   describe 'users#SHOW' do
