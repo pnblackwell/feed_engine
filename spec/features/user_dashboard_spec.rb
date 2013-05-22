@@ -92,5 +92,23 @@ describe 'user dashboard' do
         expect(page).to have_selector('img')
       end
     end
+
+    context 'when the user searches for a keyword on both flickr and 500px' do
+      it 'does something' do
+        log_in_user
+        visit '/dashboard'
+        click_link_or_button 'Create A New Feed'
+
+        fill_in "feed_name", with: "mountains"
+        fill_in "feed_subdomain", with: "mountains"
+        fill_in "value", with: "mountains"
+        check "500px"
+        check "flickr"
+        choose "Keyword"
+        click_link_or_button "Create Feed"
+
+        expect(page).to have_selector('img')
+      end
+    end
   end
 end
