@@ -1,11 +1,16 @@
-require 'resque/server'
+  require 'resque/server'
 
 class FeedsController < ApplicationController
   before_filter :require_login, only: [:new, :create]
 
   def index
-    search = Search.new(search_type: 'username', value: params[:username])
-    @photo_urls = Flickr.new(search).retrieve_photos
+    @feeds = Feed.where(:user_id => current_user.id)
+    @feeds.each do |feed|
+      feed.feed_items.each do |feed_item|
+        @image = MiniMagick::Image.open(feed_item.photo_url)
+      end
+    end
+    # @thumbnail = resize_and_crop(@image, size(in_px))
   end
 
   def new
