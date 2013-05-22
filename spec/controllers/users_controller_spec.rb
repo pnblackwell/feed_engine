@@ -27,7 +27,7 @@ describe UsersController do
 
     it 'creates a new user with the provided email and user info stored in session' do
       expect{
-        post :create, {user: {email: 'user@example.com'}}, {omniauth_results: @omniauth_hash}
+        post :create, {user: {email: 'user@example.com'}}, {user_info: {username: 'mockuser', provider: 'twitter', provider_id: '123545'}}
       }.to change{User.count}.by(1)
 
       created_user = User.last
@@ -37,12 +37,12 @@ describe UsersController do
     end
 
     it 'redirects the user back to the dashboard' do
-      post :create, {user: {email: 'user@example.com'}}, {omniauth_results: @omniauth_hash}
+      post :create, {user: {email: 'user@example.com'}}, {user_info: {username: 'mockuser', provider: 'twitter', provider_id: '123545'}}
       expect(response).to redirect_to dashboard_path
     end
 
     it 'sets the user id in the session to log them in' do
-      post :create, {user: {email: 'user@example.com'}}, {omniauth_results: @omniauth_hash}
+      post :create, {user: {email: 'user@example.com'}}, {user_info: {username: 'mockuser', provider: 'twitter', provider_id: '123545'}}
 
       expect(session[:user_id]).to eq User.last.id
     end
