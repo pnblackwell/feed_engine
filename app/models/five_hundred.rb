@@ -17,7 +17,7 @@ class FiveHundred
 
   def get_photo_objects(url, search)
     photo_objects = JSON.parse(F00px.get(url).body)
-    reject_existing_photos(photo_objects, search)
+    reject_existing_photos(photo_objects, search) if !photo_objects["error"].present?
   end
 
   def create_feed_items(feed_id, search_id, photo_objects)
