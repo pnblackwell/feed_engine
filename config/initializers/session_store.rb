@@ -4,5 +4,5 @@ unless Rails.env.test?
 end
 
 
-# FeedEngine::Application.config.session_store :active_record_store
+FeedEngine::Application.config.session_store :active_record_store
 
