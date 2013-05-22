@@ -28,6 +28,7 @@
             <div class="span2">
               <h4><%= feed.name %></h4>
               <p> Visit Your Feed: <%= link_to root_url(subdomain: feed.subdomain) %></p>
+              <%= button_to "Delete", {:controller => :feeds, :action => 'destroy', :id => feed.id }, :method => :delete, class:'btn btn-danger' %>
             </div>
             <div class="span10">
               <h3>Searches in This Feed</h3>
@@ -53,8 +54,8 @@
             </div>
             </div>
           </div>
-                </tbody>
-                </table>
+          </tbody>
+          </table>
           <% end %>
           </div>
         </div>
