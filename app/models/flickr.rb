@@ -19,7 +19,6 @@ class Flickr
   end
 
   def get_username_photos(username)
-    # flickr.value?
     id = get_user_id(username)
     photos_list = flickr.photos.search(api_key: FlickRaw.api_key, user_id: id, extras: 'owner_name', page: 1, per_page: 30)
     cleaned_list = Flickr.clean_results(photos_list)
@@ -43,6 +42,6 @@ class Flickr
   end
 
   def get_user_id(username)
-    flickr.people.findByUsername(username: username).id
+    flickr.people.findByUsername(username: username)
   end
 end
