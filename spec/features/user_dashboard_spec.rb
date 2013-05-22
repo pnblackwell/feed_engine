@@ -37,6 +37,7 @@ describe 'user dashboard' do
 
     context 'when the user searches for an ivalid flickr screen name' do
       it 'does something' do
+        pending
         #same for 500px
       end
     end
