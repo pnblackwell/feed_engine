@@ -10,7 +10,6 @@ class FeedsController < ApplicationController
         @image = MiniMagick::Image.open(feed_item.photo_url)
       end
     end
-    # @thumbnail = resize_and_crop(@image, size(in_px))
   end
 
   def new
@@ -26,13 +25,13 @@ class FeedsController < ApplicationController
         @feed.collect_feed_items
 
       rescue FlickRaw::FailedResponse, FiveHundred::ResponseError
-        flash.notice = 'Invalid Feed!'
+        flash[:notice] = 'This feed is invalid'
         redirect_to(new_feed_path) and return
       end
 
       redirect_to root_url(subdomain: @feed.subdomain)
     else
-      flash.notice = "Oops! We failed to create your feed"
+      flash[:notice] = "Oops! We failed to create your feed."
       redirect_to new_feed_path
     end
   end
@@ -40,7 +39,7 @@ class FeedsController < ApplicationController
   def show
     @feed = Feed.find_by_subdomain(request.subdomain)
     if @feed.nil?
-      flash.notice = 'Feed Does Not Exist'
+      flash[:notice] = 'Feed Does Not Exist'
       redirect_to(root_url(subdomain: false)) and return
     end
     @feed_items = @feed.feed_items

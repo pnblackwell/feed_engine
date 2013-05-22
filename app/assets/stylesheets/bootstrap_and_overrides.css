@@ -16,6 +16,14 @@ a:hover{
   text-decoration: none;
 }
 
+.flash{
+  color: #fff;
+  background-color: black;
+  font-size: 115%;
+  font-style: italic;
+  padding: 5px;
+}
+
 .thumbnail{
 display: block;
 padding: 4px;
@@ -73,13 +81,22 @@ transition: all 0.2s ease-in-out;
   left: 60%;
   color: grey;
 }
+
 .modal-header{
   background: none;
   background-color: black;
+  color: #fff;
+}
+
+.modal-flash{
+  font-size:80%;
+  margin: 0px;
+  padding:0px;
 }
 
 .modal-body{
   padding-left: 50px;
+  overflow-y: visible;
 }
 
 .modal-backdrop{
@@ -135,6 +152,10 @@ transition: all 0.2s ease-in-out;
   margin-right: auto;
 }
 
+.feed_modal {
+  height: 630px;
+}
+
 #email_form {
   text-align: center;
 }
@@ -144,8 +165,6 @@ transition: all 0.2s ease-in-out;
   margin-top: 200px;
   font-size: 200%;
 }
-
-
 
 #user_email {
   width: 600px;
