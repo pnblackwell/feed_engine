@@ -9,7 +9,18 @@
           Photoline lets you view all your photos in one place, is totally free and has no ads!
         </p>
         <%= render partial: "home", formats: [:js] %>
-        <%= render "shared/user_navigation" %>
+
+      <%if current_user %>
+        <ul class="navLinks">
+          <li><%= current_user.username %></li>
+          <li><%= link_to "My dashboard", dashboard_path(subdomain: false) %></li>
+          <li><%= link_to "Sign out", signout_path %></li>
+        </ul>
+      <% else %>
+        <p>
+          <%= link_to image_tag("signInWithTwitter.png"),"/auth/twitter" , id: 'signin' %>
+        </p>
+      <% end %>
      </div>
    </div>
   </div>
