@@ -13,8 +13,7 @@ class FeedsController < ApplicationController
   end
 
   def create
-    @feed = Feed.new(params[:feed])
-    @feed.user_id = current_user.id
+    @feed = current_user.feeds.new(params[:feed])
 
     if @feed.save
       # search = Search.new(params[:feed][:searches_attributes]["0"])

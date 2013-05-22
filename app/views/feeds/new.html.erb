@@ -16,21 +16,32 @@
         <p class='note'>(e.g., kittens. Please, no spaces or special characters.)</p>
         <%= f.text_field :subdomain %>
 
-     <%= f.fields_for :searches do |search_field| %>
-          <%= search_field.label 'Search' %>
-          <a class='note' href="http://flickr.com ">What's a Flickr Screen Name?</a>
-          <%= search_field.text_field :value, id: 'value' %>
-          <%= search_field.label 'Select Search Type' %>
-          
+          <%= f.label "What sites do you want to search?" %>
           <div>
-            <%= search_field.radio_button :search_type, :username, class:'radio_button' %>
-            <%= f.label :search_type, 'Screen Name', :value => 'username', class:'radio_label' %>
+            <label class="checkbox inline">
+              <input type="checkbox" name="feed[sources][]" id="inlineCheckbox1" value="500px"> 500px
+            </label>
+            <label class="checkbox inline">
+              <input type="checkbox" name="feed[sources][]" id="inlineCheckbox2" value="flickr"> flickr
+            </label>
+          </div>
+          <%= f.label 'Select Search Type' %>
+          <div>
+            <label>
+              <%= f.radio_button :search_type, :username, class:'radio_button' %>
+              Screen Name
+            </label>
           </div>
           <div>
-            <%= search_field.radio_button :search_type, :keyword, class:'radio_button' %>
-            <%= f.label :search_type, 'Keyword', :value => 'keyword', class:'radio_label' %>
+            <label>
+              <%= f.radio_button :search_type, :keyword, class:'radio_button' %>
+              Keyword
+            </label>
           </div>
-        <% end %>
+
+          <%= f.label 'Search' %>
+          <p class='note'>(e.g., kittens, boots, zombies.)</p>
+          <%= f.text_field :value, id: 'value' %>
 
   <br>
 
@@ -47,7 +58,7 @@
         $('#newfeed').modal({backdrop: 'static'});
     });
 </script>
-  
+
 
 
 
