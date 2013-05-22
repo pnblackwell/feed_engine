@@ -32,5 +32,9 @@ class Feed < ActiveRecord::Base
     end
   end
 
+  def self.delete_invalid_feed(feed)
+    feed.destroy
+  end
+
 end
 

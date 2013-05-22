@@ -26,6 +26,7 @@ class FeedsController < ApplicationController
 
       rescue FlickRaw::FailedResponse, FiveHundred::ResponseError
         flash[:notice] = 'This feed is invalid'
+        Feed.delete_invalid_feed(@feed)
         redirect_to(new_feed_path) and return
       end
 
