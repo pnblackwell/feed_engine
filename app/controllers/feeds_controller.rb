@@ -4,7 +4,9 @@ class FeedsController < ApplicationController
   before_filter :require_login, only: [:new, :create]
 
   def index
-    @feeds =  Feed.where(:user_id => current_user.id)
+    @feeds = Feed.where(:user_id => current_user.id)
+    @image = MiniMagick::Image.open(@feeds.feed_item.photo_url).first
+    @thumbnail = resize_and_crop(@image, size(in_px))
   end
 
   def new
