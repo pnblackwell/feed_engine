@@ -6,11 +6,25 @@ describe Feed do
       it "generates feeds items & saves them to the db" do
         #THIS TEST NEEDS VCR OR A STUB FOR THE API
         feed = Feed.new(name: 'kittens', subdomain: "kittens")
-        search = feed.searches.new(search_type: 'username', value: 'jcasimir', search_source: 'flickr')
+        search = feed.searches.new(search_type: 'username', value: 'jcasimir', source: 'flickr')
         feed.save
         feed.collect_feed_items
 
         expect(feed.feed_items.first.feed_id).to eq(feed.id)
+      end
+
+      it 'creates search object' do
+        feed = described_class.new(name: 'j3', subdomain: 'j3', search_type: 'username', value: 'jcasimir', sources: ['flickr'])
+        feed.save!
+        feed.searches.count.should eq 1
+      end
+    end
+
+    context 'with two sources' do
+      it 'creates two search objects' do
+        feed = described_class.new(name: 'j3', subdomain: 'j3', search_type: 'username', value: 'jcasimir', sources: ['flickr', '500px'])
+        feed.save!
+        feed.searches.count.should eq 2
       end
     end
 
@@ -18,8 +32,9 @@ describe Feed do
       it "generates feeds items & saves them to the db" do
         #THIS TEST NEEDS VCR OR A STUB FOR THE API
         feed = Feed.new(name: 'kittens', subdomain: "kittens")
-        search1 = feed.searches.new(search_type: 'username', value: 'jcasimir', search_source: 'flickr')
-        search2 = feed.searches.new(search_type: 'username', value: '-hndrk-', search_source: 'flickr')
+        search1 = feed.searches.new(search_type: 'username', value: 'jcasimir', source: 'flickr')
+        search2 = feed.searches.new(search_type: 'username', value: '-hndrk-', source: 'flickr')
+
         feed.save
         feed.collect_feed_items
 
@@ -29,19 +44,4 @@ describe Feed do
       end
     end
   end
-
-  describe ".create_feed" do
-    it "creates a feed and associated searches" do
-      params = {:feed =>{:name=>"dsfds", :subdomain=>"safdsf", :searches_attributes=>{"0"=>{:search_type=>"keyword", :value=>"kittens"}}}, :source=>["500px", "flickr"]}
-
-      feed = Feed.create_feed(params)
-
-      first_search  = feed.searches.first
-      second_search = feed.searches.last
-
-      expect(first_search.search_source).to eq "500px"
-      expect(second_search.search_source).to  eq "flickr"
-    end
-  end
-
 end

@@ -21,6 +21,12 @@ RSpec.configure do |config|
   # config.mock_with :mocha
   # config.mock_with :flexmock
   # config.mock_with :rr
+  config.after(:each) do
+    if example.exception && example.metadata[:type] == :feature
+      filename = File.basename(save_page)
+      puts "here's your shipment of fail: #{ filename }"
+    end
+  end
 
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
