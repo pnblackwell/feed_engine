@@ -41,7 +41,7 @@ describe SessionsController do
 
         get :create
 
-        expect(session[:omniauth_results]).to eq OmniAuth.config.mock_auth[:twitter]
+        expect(session[:user_info]).to eq(:provider => "twitter", :provider_id => "123545", :username => "mockuser")
       end
     end
   end
