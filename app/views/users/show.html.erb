@@ -19,8 +19,8 @@
                 <p> Visit Your Feed: <%= link_to feed.subdomain+'.photoline-feed.us/', root_url(subdomain: feed.subdomain) %></p>
               </div>
               <div class="span10">
-                <h3>Searches in This Feed</h3>
-                      <% feed.feed_items.each do |feed|%>
+                <h3>Feed Sampling</h3>
+                      <% feed.feed_items[0..9].each do |feed|%>
                         <%= image_tag(feed.photo_url, :size => "200x200") %>
                       <%end %>
 
