@@ -35,10 +35,21 @@ describe 'user dashboard' do
       end
     end
 
-    context 'when the user searches for an ivalid flickr screen name' do
-      it 'does something' do
-        pending
-        #same for 500px
+    context 'when the user searches for an ivalid flickr or 500px screen name' do
+      it 'redirects back to the create feed form' do
+        log_in_user
+        visit '/dashboard'
+        click_link_or_button 'Create A New Feed'
+
+        fill_in "feed_name", with: "testing"
+        fill_in "feed_subdomain", with: "testing"
+        fill_in "value", with: "kafkjhdafh"
+        check "flickr"
+        check "500px"
+        choose "Screen Name"
+        click_link_or_button "Create Feed"
+
+        expect(current_path).to eq new_feed_path
       end
     end
 
