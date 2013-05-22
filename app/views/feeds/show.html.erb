@@ -12,14 +12,15 @@
           <% if item.photo_title != '' %>
             <p><em>Photo Title:</em> <%= item.photo_title %></p>
           <% end %>
-
-          <p><em>Photo Owner:</em> <%= item.owner %></p>
-          <p><em>Source:</em> <%= item.source %></p>
         </div>
 
         <div class='photo-buttons'>
           <button class='slidedown btn btn-inverse'><i class='icon-chevron-up icon-white'></i></button>
           <button class='slideup btn btn-inverse'><i class='icon-chevron-down icon-white'></i></button>
+        </div>
+        <div class="metadata-2">
+          <p><em>Photo Owner:</em> <%= item.owner %></p>
+          <p><em>Source:</em> <%= item.source %></p>
         </div>
 
 
