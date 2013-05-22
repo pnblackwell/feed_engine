@@ -14,7 +14,7 @@ describe Feed do
       end
 
       it 'creates search object' do
-        feed = described_class.new(name: 'j3', subdomain: 'j3', search_type: 'username', value: 'jcasimir', sources: ['flickr'])
+        feed = described_class.new(name: 'j3', subdomain: 'jeff', search_type: 'username', value: 'jcasimir', sources: ['flickr'])
         feed.save!
         feed.searches.count.should eq 1
       end
@@ -22,7 +22,7 @@ describe Feed do
 
     context 'with two sources' do
       it 'creates two search objects' do
-        feed = described_class.new(name: 'j3', subdomain: 'j3', search_type: 'username', value: 'jcasimir', sources: ['flickr', '500px'])
+        feed = described_class.new(name: 'j3', subdomain: 'jeff', search_type: 'username', value: 'jcasimir', sources: ['flickr', '500px'])
         feed.save!
         feed.searches.count.should eq 2
       end
