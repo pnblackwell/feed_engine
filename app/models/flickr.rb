@@ -19,7 +19,6 @@ class Flickr
   end
 
   def get_username_photos(username)
-    # flickr.value?
     id = get_user_id(username)
     photos_list = flickr.photos.search(api_key: FlickRaw.api_key, user_id: id, extras: 'owner_name', page: 1, per_page: 30)
     cleaned_list = Flickr.clean_results(photos_list)
@@ -35,7 +34,7 @@ class Flickr
                 { source: 'flickr',
                   source_id: result['id'].to_i,
                   photo_title: result['title'],
-                  owner: result['owner_name'],
+                  owner: result['ownername'],
                   photo_url: "http://farm#{result['farm']}.staticflickr.com/#{result['server']}/#{result['id']}_#{result['secret']}.jpg"
                 }
               end
@@ -43,6 +42,6 @@ class Flickr
   end
 
   def get_user_id(username)
-    flickr.people.findByUsername(username: username).id
+    flickr.people.findByUsername(username: username)
   end
 end

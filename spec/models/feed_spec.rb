@@ -44,4 +44,42 @@ describe Feed do
       end
     end
   end
+
+  describe 'deleting a feed' do
+    it 'deletes corresponding searches' do
+      feed1 = Feed.create(name: 'feed', subdomain: 'feed' )
+      feed1.destroy
+
+      expect(feed1.searches).to eq([])
+    end
+
+    it 'deletes corresponding feed_items' do
+      feed1 = Feed.create(name: 'feed', subdomain: 'feed')
+      feed1.destroy
+
+      expect(feed1.feed_items).to eq([])
+    end
+  end
+
+  describe 'validation' do
+    it 'doesnt allow two feeds with the same subdomain name to be created' do
+      feed1 = Feed.create(name: 'feed1', subdomain: 'feed')
+      feed2 = Feed.new(name: 'feed2', subdomain: 'feed')
+
+      expect(feed2).to be_invalid
+    end
+
+    it 'doesnt allow two feeds with the same name to be created' do
+      feed1 = Feed.create(name: 'feed', subdomain: 'feed1')
+      feed2 = Feed.create(name: 'feed', subdomain: 'feed2')
+
+      expect(feed2).to be_invalid
+    end
+
+    it 'cleans up subdomains with parameterize' do
+      feed1 = Feed.create(name: 'feed', subdomain: 'i-really-really-like-feeds')
+
+      expect(feed1).to be_invalid
+    end
+  end
 end

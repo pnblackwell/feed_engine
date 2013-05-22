@@ -22,19 +22,11 @@ class FeedsController < ApplicationController
     @feed = current_user.feeds.new(params[:feed])
 
     if @feed.save
-      # search = Search.new(params[:feed][:searches_attributes]["0"])
-      # search.feed_id = @feed.id
-      # search.save
-
-      @feed.collect_feed_items
-
-      #if i do the below, then its going to be slow for sure on first run, but what if we just
-      #do an immediate call here and save teh resque for updating/adding searches
-
-      #SETUP FOR USING RESQUE TO GET THE PHOTOS
-      # search_id = @feed.searches.first.id
-      # Resque.enqueue(PhotoFetcher, search_id)
-
+      begin
+        @feed.collect_feed_items
+      rescue FlickRaw::FailedResponse
+        redirect_to(new_feed_path) and return
+      end
       redirect_to root_url(subdomain: @feed.subdomain)
     else
       redirect_to new_feed_path, notice: "Oops! We failed to create your feed"
@@ -44,5 +36,11 @@ class FeedsController < ApplicationController
   def show
     @feed = Feed.find_by_subdomain(request.subdomain)
     @feed_items = @feed.feed_items
+  end
+
+  def destroy
+    @feed = Feed.find_by_id(params[:id])
+    @feed.destroy
+    redirect_to dashboard_path
   end
 end
