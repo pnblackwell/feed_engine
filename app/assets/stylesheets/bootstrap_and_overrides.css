@@ -139,3 +139,17 @@ transition: all 0.2s ease-in-out;
 .feed_modal {
   height: 630px;
 }
+
+#email_form {
+  text-align: center;
+}
+
+#email {
+  text-align: center;
+  margin-top: 200px;
+  font-size: 200%;
+}
+
+#user_email {
+  width: 600px;
+}
